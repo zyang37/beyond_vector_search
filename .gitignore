@@ -2,3 +2,4 @@ mnist-784-euclidean.hdf5
 *.hdf5
 *.pickle
 *.pkl
+venv/
