@@ -3,3 +3,10 @@ mnist-784-euclidean.hdf5
 *.pickle
 *.pkl
 venv/
+data/*
+__pycache__/*
+.ipynb_checkpoints/*
+.idea/*
+.vscode/*
+runs/*
+logs/*
