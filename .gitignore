@@ -11,3 +11,4 @@ __pycache__/*
 runs/*
 logs/*
 */.ipynb_checkpoints/*
+*/__pycache__/*
