@@ -2,6 +2,7 @@ import json
 import numpy as np
 import pandas as pd
 from tqdm.auto import tqdm
+from collections import Counter
 
 def sort_dict(dict_data, byval=True, reverse=True):
     if byval: idx = 1
@@ -43,3 +44,6 @@ def gather_stats(df):
     intermediate_jou_stats = dict(df['journal-ref'].value_counts())
     # intermediate_year_stats = dict(df['update_date'].value_counts())
     return intermediate_authors_stats, intermediate_cat_stats, intermediate_jou_stats
+
+def make_keyword_id(category, value):
+    return category + ":" + value
