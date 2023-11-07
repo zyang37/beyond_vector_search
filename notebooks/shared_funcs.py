@@ -44,3 +44,7 @@ def gather_stats(df):
     intermediate_cat_stats = dict(df["categories"].value_counts())
     # intermediate_year_stats = dict(df['update_date'].value_counts())
     return intermediate_authors_stats, intermediate_cat_stats
+
+
+def make_keyword_id(category, value):
+    return category + ":" + value
