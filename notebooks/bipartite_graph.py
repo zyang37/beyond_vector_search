@@ -40,3 +40,6 @@ class BipartiteGraph:
             pos=nx.drawing.layout.bipartite_layout(self.G, self.data_ids),
             width=2,
         )
+
+    def add_raw_edges(self, edge_list):
+        self.G.add_edges_from(edge_list)
