@@ -15,8 +15,8 @@ class EmbeddingModels:
         self.model = AutoModel.from_pretrained(self.pretrained_model)
 
         self.model.eval()
-        # self.device = torch.device(device)
-        # self.model.to(self.device)
+        self.device = torch.device(device)
+        self.model.to(self.device)
 
     # Mean Pooling - Take attention mask into account for correct averaging
     def mean_pooling(self, model_output, attention_mask):
@@ -30,6 +30,7 @@ class EmbeddingModels:
 
         # Tokenize sentences
         encoded_input = self.tokenizer(sentences, padding=True, truncation=True, return_tensors='pt')
+        encoded_input.to(self.device)
 
         # Compute token embeddings
         with torch.no_grad():
