@@ -12,3 +12,4 @@ runs/*
 logs/*
 */.ipynb_checkpoints/*
 */__pycache__/*
+*.pickle
