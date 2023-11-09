@@ -89,8 +89,8 @@ def gather_stats(df):
     # intermediate_authors_stats = merge_add_dict(intermediate_submitter_stats, intermediate_authors_stats)
     intermediate_cat_stats = dict(df['categories'].value_counts())
     intermediate_jou_stats = dict(df['journal-ref'].value_counts())
-    # intermediate_year_stats = dict(df['update_date'].value_counts())
-    return intermediate_authors_stats, intermediate_cat_stats, intermediate_jou_stats
+    intermediate_year_stats = dict(df['update_date'].value_counts())
+    return intermediate_authors_stats, intermediate_cat_stats, intermediate_jou_stats, intermediate_year_stats
 
 def make_keyword_id(category, value):
     '''
