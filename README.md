@@ -1,8 +1,13 @@
 # Beyond Vector Search
 Hybrid Vector/Knowledge Graph Query Engine with Soft Constraints for Enhanced Data Retrieval
 
+
 ## TODOs
-- xxx
+- [Func] Construct the ground truth vectorDB using abstracts from arxiv
+- [Func] Computing the evaluation metrics given two sets of retrieval results
+- [Func] Different ways of ranking neighbors in the graph
+- [Exp] Experiment with different large k values for vectorDB. 
+
 
 ## Workflow
 - Creating arxiv vectorDB
