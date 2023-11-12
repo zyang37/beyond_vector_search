@@ -2,16 +2,9 @@
 Hybrid Vector/Knowledge Graph Query Engine with Soft Constraints for Enhanced Data Retrieval
 
 
-## TODOs
-- [Func] Construct the ground truth vectorDB using abstracts from arxiv
-- [Func] Computing the evaluation metrics given two sets of retrieval results
-- [Func] Different ways of ranking neighbors in the graph
-- [Exp] Experiment with different large k values for vectorDB. 
-
-
 ## Workflow
 - Creating arxiv vectorDB
     1. `notebooks/parsing_json.ipynb`: filter data with more overlaps, and save as pickle file
     2. `notebooks/chromaDB.ipynb`: create chromaDB using the pickle file
 - Graph
-    1. xxx
+    1. `notebooks/test_graph.ipynb`
