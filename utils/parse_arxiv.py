@@ -36,6 +36,30 @@ def parse_authors(author_str):
         authors.extend(a.split(' and '))
     return authors
 
+def parse_title(title_str):
+    '''
+    replace new line with space
+    '''
+    # replace multple space into one
+    title_str = ' '.join(title_str.split())
+    return title_str.replace("\n", " ")
+
+def parse_abstract(abstract_str):
+    '''
+    replace new line with space
+    '''
+    # replace multple space into one
+    abstract_str = ' '.join(abstract_str.split())
+    return abstract_str.replace("\n", " ")
+
+def parse_journal(journal_str):
+    '''
+    replace new line with space
+    '''
+    # replace multple space into one
+    journal_str = ' '.join(journal_str.split())
+    return journal_str.replace("\n", " ")
+
 def parse_categories(cat_str):
     '''
     This function parses the categories string into a list of categories
@@ -44,7 +68,9 @@ def parse_categories(cat_str):
         - cat_str: string of categories
     return: list of categories
     '''
-    return cat_str
+    # split by space
+    cat_list = cat_str.split(' ')
+    return cat_list
 
 def parse_year(date_str):
     '''
