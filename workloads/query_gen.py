@@ -147,7 +147,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate a workload")    
     parser.add_argument('-pn', '--paper_num', type=int, required=True, help='number of papers to generate queries from')
     parser.add_argument('-n', '--num', type=int, required=True, help='number of queries to generate per paper')
-    # parser.add_argument('-k', type=int, default=1, help='k value')
+    parser.add_argument('-t', '--title', action='store_true', help='whether to include title in the query')
     parser.add_argument('-s', "--save", type=str, default=None, help='where to save the workload (full path/name.csv)')
 
     args = parser.parse_args()
@@ -156,6 +156,7 @@ if __name__ == "__main__":
     # k = args.k
     paper_num = args.paper_num
     num_queries_per_paper = args.num
+    title = args.title
 
     # You may want to change the probability of adding each information
     infor_prob = {
@@ -182,11 +183,11 @@ if __name__ == "__main__":
     # generate queries
     paper_id_list = []
     queries_list = []
-    for d in sample_dict_list:
+    for d in tqdm(sample_dict_list):
         query_template = QueryTemplate()
         query_template.update_prob(infor_prob)
-        query_template.parse_info(one_sample)
-        queries_list.extend(query_template.generate_queries(num=num_queries_per_paper))
+        query_template.parse_info(d)
+        queries_list.extend(query_template.generate_queries(title=title, num=num_queries_per_paper))
         paper_id_list.extend([d['id']]*num_queries_per_paper)
 
     if save_path:
