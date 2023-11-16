@@ -2,6 +2,7 @@ import pandas as pd
 import chromadb
 import argparse
 import pickle
+from tqdm import tqdm
 
 
 def create_paper_id_to_title_dict(filtered_data):
@@ -23,7 +24,7 @@ def vector_search(df, coll_name, client, k, get_query_func, id2abstract_dict, ba
     collection = client.get_collection(name=coll_name)
     query_col = get_query_func(df, id2abstract_dict)
     search_results = []
-    for idx in range(0, df.shape[0], batch_size):
+    for idx in tqdm(range(0, df.shape[0], batch_size)):
         queries = query_col.iloc[idx : idx + batch_size].values.tolist()
         results = collection.query(query_texts=queries, n_results=k)
         search_results.extend(results["ids"])
