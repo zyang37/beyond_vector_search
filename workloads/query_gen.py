@@ -2,7 +2,12 @@
 This script should take in a dataframe and generate a list of queries (query text, k value)
 
 A workload should be a dataframe, and will be write to a csv file. 
+
+
+
+Example: python query_gen.py -pn 20 -n 2 -s 20_2_k1/test.csv
 """
+
 
 import sys
 import random
@@ -40,7 +45,14 @@ class QueryTemplate:
             "journal": 0.3,
         }
 
-    def generate_query(self, title=False):
+    def generate_queries(self, title=False, num=1):
+        # generate a list of queries
+        queries = []
+        for i in range(num):
+            queries.append(self.generate_one_query(title=title))
+        return queries
+    
+    def generate_one_query(self, title=False):
         start_text = "find papers"
         query = start_text
         if title:
@@ -132,31 +144,58 @@ def generate_many():
 
 if __name__ == "__main__":
     # get a number from the command line
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "-n", "--num", type=int, default=10, help="number of queries to generate"
-    )
+
+    parser = argparse.ArgumentParser(description="Generate a workload")    
+    parser.add_argument('-pn', '--paper_num', type=int, required=True, help='number of papers to generate queries from')
+    parser.add_argument('-n', '--num', type=int, required=True, help='number of queries to generate per paper')
+    # parser.add_argument('-k', type=int, default=1, help='k value')
+    parser.add_argument('-s', "--save", type=str, default=None, help='where to save the workload (full path/name.csv)')
+
     args = parser.parse_args()
-    numbers_of_queries = args.num
+
+    save_path = args.save
+    k = args.k
+    paper_num = args.paper_num
+    num_queries_per_paper = args.num
+
+    # You may want to change the probability of adding each information
+    infor_prob = {
+            'author': 0.5,
+            'year': 0.5,
+            'categories': 0.5,
+            'keywords': 0.5,
+            'journal': 0.5
+        }
 
     file = open("../data/filtered_data.pickle", "rb")
     data = pickle.load(file)
     file.close()
     data.reset_index(drop=True, inplace=True)
 
-    # sample 1 row from the data, print it out
-    sample = data.sample(1).iloc[0]
-    sample = dict(sample)
-    query_template = QueryTemplate()
-    query_template.parse_info(sample)
+    
+    # sampling and parse the data => dict
+    sample_dict_list = []
+    samples = data.sample(paper_num)
+    for index, row in samples.iterrows():
+        one_sample = dict(row)
+        sample_dict_list.append(one_sample)
+        
+    # generate queries
+    paper_id_list = []
+    queries_list = []
+    for d in sample_dict_list:
+        query_template = QueryTemplate()
+        query_template.update_prob(infor_prob)
+        query_template.parse_info(one_sample)
+        queries_list.extend(query_template.generate_queries(num=num_queries_per_paper))
+        paper_id_list.extend([d['id']]*num_queries_per_paper)
 
-    print()
-    print("<<< Selected paper >>>")
-    # pprint(sample)
-    query_template.print_info()
-
-    # generate 10 queries
-    print()
-    print("<<< Randomly generated queries >>>")
-    for i in range(numbers_of_queries):
-        print("{}.".format(i + 1), query_template.generate_query())
+    if save_path:
+        # make pandas dataframe
+        # df = pd.DataFrame({'paper_id': paper_id_list, 'query': queries_list, 'k': [k]*len(queries_list)})
+        df = pd.DataFrame({'paper_id': paper_id_list, 'query': queries_list})
+        df.to_csv(save_path, index=False)
+    else:
+        # print queries
+        for i, q in enumerate(queries_list):
+            print("{:8d}. {:10}: {}".format(i+1, paper_id_list[i], q))
