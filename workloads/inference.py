@@ -5,10 +5,10 @@ import pickle
 
 
 def create_paper_id_to_title_dict(filtered_data):
-    return pd.Series(filtered_data.title.values, index=filtered_data.id).to_dict()
+    return dict(zip(filtered_data.id.astype("string"), filtered_data.title))
 
 def create_id_to_abstract_dict(filtered_data):
-    return pd.Series(filtered_data.abstract.values, index=filtered_data.id).to_dict()
+    return dict(zip(filtered_data.id.astype("string"), filtered_data.abstract))
 
 
 def get_query_col(df, id2abstract_dict):
@@ -16,7 +16,7 @@ def get_query_col(df, id2abstract_dict):
 
 
 def get_abstract_col(df, id2abstract_dict):
-    return df["paper_id"].map(id2abstract_dict)
+    return df["paper_id"].astype("string").map(id2abstract_dict)
 
 
 def vector_search(df, coll_name, client, k, get_query_func, id2abstract_dict, batch_size=50):
@@ -49,6 +49,13 @@ if __name__ == "__main__":
         type=int,
         default=10,
         help="number of k to retrieve for each query",
+    )
+    parser.add_argument(
+        "-s",
+        "--save",
+        type=str,
+        default="../data/inference_results.csv",
+        help="csv path to save the results",
     )
     parser.add_argument(
         "-c",
@@ -90,8 +97,6 @@ if __name__ == "__main__":
     with open(args.filtered_data_path, "rb") as f:
         filtered_data = pickle.load(f)
     id2title_dict = create_paper_id_to_title_dict(filtered_data)
-    for k, v in id2title_dict.items():
-        print(k, v)
     id2abstract_dict = create_id_to_abstract_dict(filtered_data)
     result_df = infer(
         args.chroma,
@@ -101,11 +106,15 @@ if __name__ == "__main__":
         id2abstract_dict,
         args.k,
     )
+    print("Papers found by titles:")
     for x in result_df[args.titles]:
-        print(x)
         x = [id2title_dict[y] for y in x]
         print(x)
-    # print(result_df[args.titles])
-    # print(result_df[args.abstracts])
+    print()
+    print("Papers found by abstracts:")
+    for x in result_df[args.abstracts]:
+        x = [id2title_dict[y] for y in x]
+        print(x)
     # print(result_df[args.titles].map(id2title_dict))
     # print(result_df[args.abstracts].map(id2abstract_dict))
+    result_df.to_csv(args.save)
