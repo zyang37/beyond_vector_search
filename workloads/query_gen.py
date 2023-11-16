@@ -148,6 +148,15 @@ if __name__ == '__main__':
     paper_num = args.paper_num
     num_queries_per_paper = args.num
 
+    # You may want to change the probability of adding each information
+    infor_prob = {
+            'author': 0.5,
+            'year': 0.5,
+            'categories': 0.5,
+            'keywords': 0.5,
+            'journal': 0.5
+        }
+
     file = open('../data/filtered_data.pickle', 'rb')
     data = pickle.load(file)
     file.close()
@@ -165,6 +174,7 @@ if __name__ == '__main__':
     queries_list = []
     for d in sample_dict_list:
         query_template = QueryTemplate()
+        query_template.update_prob(infor_prob)
         query_template.parse_info(one_sample)
         queries_list.extend(query_template.generate_queries(num=num_queries_per_paper))
         paper_id_list.extend([d['id']]*num_queries_per_paper)
