@@ -50,8 +50,18 @@ if __name__ == '__main__':
     parser.add_argument("--emb", metavar="", type=str, default="title", help="Field to vectorize (title or abstract)")
     parser.add_argument("-t", "--type", metavar="", type=str, default="v", help="Type of vector database (v or vg)")
     parser.add_argument("-s", "--save", metavar="", type=str, default="data/chroma_dbs/", help="Path to save the vector database")
-    # parser.add_argument("--correct", action="store_true", help="Whether to use error correction")
+    parser.add_argument("--list", action="store_true", help="DO Nothing and List all the vector databases")
     args = parser.parse_args()
+
+    if args.list:
+        chroma_client = chromadb.PersistentClient(path=args.save)
+        dbs = chroma_client.list_collections()
+        print()
+        print("Vector databases in {}".format(args.save))
+        for i, db in enumerate(dbs):
+            print("{:3d}. {}".format(i+1, db))
+        print()
+        exit()
 
     # Load the arxiv dataset
     file = open(args.dataset, "rb")

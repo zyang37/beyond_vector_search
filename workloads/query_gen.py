@@ -97,7 +97,6 @@ class QueryTemplate:
         self.keywords = remove_noise_from_keywords(
             extract_keywords(self.abstract, score=False)[:30]
         )
-        print(self.keywords)
         self.journal = parse_journal(info["journal-ref"])
 
     def title_query(self):
@@ -154,7 +153,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     save_path = args.save
-    k = args.k
+    # k = args.k
     paper_num = args.paper_num
     num_queries_per_paper = args.num
 
