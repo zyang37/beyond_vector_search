@@ -107,15 +107,4 @@ if __name__ == "__main__":
         id2abstract_dict,
         args.k,
     )
-    print("Papers found by titles:")
-    for x in result_df[args.titles]:
-        x = [id2title_dict[y] for y in x]
-        print(x)
-    print()
-    print("Papers found by abstracts:")
-    for x in result_df[args.abstracts]:
-        x = [id2title_dict[y] for y in x]
-        print(x)
-    # print(result_df[args.titles].map(id2title_dict))
-    # print(result_df[args.abstracts].map(id2abstract_dict))
     result_df.to_csv(args.save)
