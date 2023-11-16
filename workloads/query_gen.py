@@ -139,7 +139,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Generate a workload")    
     parser.add_argument('-pn', '--paper_num', type=int, required=True, help='number of papers to generate queries from')
     parser.add_argument('-n', '--num', type=int, required=True, help='number of queries to generate per paper')
-    parser.add_argument('-k', type=int, default=1, help='k value')
+    # parser.add_argument('-k', type=int, default=1, help='k value')
     parser.add_argument('-s', "--save", type=str, default=None, help='where to save the workload (full path/name.csv)')
     args = parser.parse_args()
 
@@ -181,7 +181,8 @@ if __name__ == '__main__':
 
     if save_path:
         # make pandas dataframe
-        df = pd.DataFrame({'paper_id': paper_id_list, 'query': queries_list, 'k': [k]*len(queries_list)})
+        # df = pd.DataFrame({'paper_id': paper_id_list, 'query': queries_list, 'k': [k]*len(queries_list)})
+        df = pd.DataFrame({'paper_id': paper_id_list, 'query': queries_list})
         df.to_csv(save_path, index=False)
     else:
         # print queries
