@@ -2,7 +2,7 @@ import networkx as nx
 from networkx.algorithms import bipartite
 
 
-class BipartiteGraph:
+class BipartiteGraphNetworkx:
     def __init__(self):
         self.G = nx.Graph()
         self.data_ids = []
@@ -43,3 +43,6 @@ class BipartiteGraph:
 
     def add_raw_edges(self, edge_list):
         self.G.add_edges_from(edge_list)
+
+    def find_relevant(self, input_ids_list: list[str], method: str = None) -> list[str]:
+        return
