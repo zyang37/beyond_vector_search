@@ -88,7 +88,9 @@ class BipartiteGraphDict:
             # Get the next set of keywords to explore
             cur_relevant_data_ids = []
             keywords_to_explore = set()
+            # print("IDS: ", ids_to_explore)
             for cur_id in ids_to_explore:
+                # print("CUR ID: ", self.data_dict[cur_id])
                 for keyword_id in self.data_dict[cur_id]:
                     if keyword_id not in explored_keyword_ids:
                         keywords_to_explore.add(keyword_id)
@@ -98,6 +100,7 @@ class BipartiteGraphDict:
 
             # Go through all of the keywords to find the resultant data ids
             for keyword_id in keywords_to_explore:
+                # # print("KEYWORD ID: ", keyword_id)
                 explored_keyword_ids.add(keyword_id)
                 cur_relevant_data_ids += self.keyword_dict[keyword_id]
 
@@ -109,6 +112,7 @@ class BipartiteGraphDict:
             # Sort this round of ids by the number of keywords explored in this round they are associated with
             c = Counter(cur_relevant_data_ids)
             common = c.most_common(k + len(input_ids_list))
+            # # print("Common", common)
 
             # Filter redundant ids
             ids_to_explore = []
@@ -118,8 +122,8 @@ class BipartiteGraphDict:
 
             res += ids_to_explore
             round_num += 1
-
-        self.log(f"num search rounds: {round_num}")
+        if debug:
+            self.log(f"num search rounds: {round_num}")
         res = res[:k]
 
         if debug:
@@ -131,10 +135,20 @@ class BipartiteGraphDict:
                     cur_id_in_chain = debug_node_map[cur_id_in_chain]
                     id_add_chain.append(cur_id_in_chain)
 
-                self.log(f"{id}, discovery chain: {id_add_chain}")
+                tmp_c = Counter()
+                id_keywords = set(self.data_dict[id])
+                for input_id in input_ids_list:
+                    shared_keywords = id_keywords.intersection(
+                        set(self.data_dict[input_id])
+                    )
+                    tmp_c.update(shared_keywords)
+
+                self.log(
+                    f"{id}, keywords shared with input:{tmp_c.most_common()} discovery chain: {id_add_chain}"
+                )
         return res
 
-    def get_common_keywords_from_id_list(self, id_list) -> list[Any]:
+    def get_keyword_totals_of_id_list(self, id_list) -> list[Any]:
         keyword_list = []
         for id in id_list:
             keyword_list += self.data_dict[id]

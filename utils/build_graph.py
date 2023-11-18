@@ -1,4 +1,4 @@
-from parse_arxiv import (
+from utils.parse_arxiv import (
     make_keyword_id,
     parse_authors,
     parse_categories,
@@ -10,12 +10,12 @@ import pandas as pd
 import sys
 
 sys.path.append("../")
-from vector_graph.bipartite_graph import BipartiteGraph
+from vector_graph.bipartite_graph_dict import BipartiteGraphDict
 
 
 def build_graph(df):
     # add document nodes
-    G = BipartiteGraph()
+    G = BipartiteGraphDict()
     author_keywords = []
     category_keywords = []
     journal_keywords = []
@@ -71,11 +71,3 @@ def build_graph(df):
     G.add_raw_edges(journal_edges)
     G.add_raw_edges(year_edges)
     return G
-
-
-if __name__ == "__main__":
-    filtered_data_path = "../data/filtered_data.pickle"
-    with open(filtered_data_path, "rb") as f:
-        filtered_data = pickle.load(f)
-    graph = build_graph(filtered_data.iloc[:100])
-    graph.draw_graph()
