@@ -1,4 +1,4 @@
-'''
+"""
 Assume you have ran the notebook `notebook`
 
 This script is used to make a presistent vector databases:
@@ -10,7 +10,7 @@ args:
     - path to the arxiv dataset
     - vectorize feilds: title or abstract
     - Save path
-'''
+"""
 
 import pickle
 import chromadb
@@ -24,8 +24,8 @@ def create_vector_arxiv(data, args):
     chroma_client = chromadb.PersistentClient(path=args.save)
 
     documents = list(data[args.emb].values)
-    ids = list(data['id'].astype('str').values)
-    metedata = list(data.to_dict(orient='records'))
+    ids = list(data["id"].astype("str").values)
+    metedata = list(data.to_dict(orient="records"))
 
     # load data into the database
     batch_size = 500
@@ -33,17 +33,14 @@ def create_vector_arxiv(data, args):
     for i in tqdm(range(0, len(ids), batch_size)):
         collection.add(
             # embeddings=[[1.2, 2.3, 4.5], [6.7, 8.2, 9.2]], # could add embed if they are already computed!
-            documents = documents[i:i+batch_size],
-            metadatas = metedata[i:i+batch_size],
-            ids = ids[i:i+batch_size]
+            documents=documents[i : i + batch_size],
+            metadatas=metedata[i : i + batch_size],
+            ids=ids[i : i + batch_size],
         )
     print("Saved <{}> at {}".format(args.collection, args.save))
 
 
-def create_hybrid_arxiv(data, args):
-    raise NotImplementedError
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Create a vector database")
     parser.add_argument("-d", "--dataset", metavar="", type=str, default="data/filtered_data.pickle", help="Dataset to use (pickle file))")
     parser.add_argument("-c", "--collection", metavar="", type=str, default="arxiv_vector", help="Name of the collection")
@@ -59,7 +56,7 @@ if __name__ == '__main__':
         print()
         print("Vector databases in {}".format(args.save))
         for i, db in enumerate(dbs):
-            print("{:3d}. {}".format(i+1, db))
+            print("{:3d}. {}".format(i + 1, db))
         print()
         exit()
 
@@ -83,7 +80,5 @@ if __name__ == '__main__':
     # Create the vector database
     if args.type == "v":
         create_vector_arxiv(data, args)
-    elif args.type == "vg":
-        create_hybrid_arxiv(data, args)
     else:
         raise ValueError("Invalid type: {}".format(args.type))

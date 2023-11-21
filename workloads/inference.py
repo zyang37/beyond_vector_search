@@ -3,10 +3,19 @@ import chromadb
 import argparse
 import pickle
 from tqdm import tqdm
+import os
+import sys
+import math
+
+sys.path.append("../")
+from utils.build_graph import build_graph
+
+HYBRID_COL = "hybrid"
 
 
 def create_paper_id_to_title_dict(filtered_data):
     return dict(zip(filtered_data.id.astype("string"), filtered_data.title))
+
 
 def create_id_to_abstract_dict(filtered_data):
     return dict(zip(filtered_data.id.astype("string"), filtered_data.abstract))
@@ -20,7 +29,9 @@ def get_abstract_col(df, id2abstract_dict):
     return df["paper_id"].astype("string").map(id2abstract_dict)
 
 
-def vector_search(df, coll_name, client, k, get_query_func, id2abstract_dict, batch_size=50):
+def vector_search(
+    df, coll_name, client, k, get_query_func, id2abstract_dict, batch_size=50
+):
     collection = client.get_collection(name=coll_name)
     query_col = get_query_func(df, id2abstract_dict)
     search_results = []
@@ -31,15 +42,61 @@ def vector_search(df, coll_name, client, k, get_query_func, id2abstract_dict, ba
     return search_results
 
 
-def infer(chroma_path, workload_csv, title_col, abstract_col, id2abstract_dict, k):
+def hybrid_search(
+    df,
+    coll_name,
+    client,
+    graph,
+    vector_k,
+    graph_k,
+    get_query_func,
+    id2abstract_dict,
+    batch_size=50,
+):
+    vector_search_results = vector_search(
+        df, coll_name, client, vector_k, get_query_func, id2abstract_dict, batch_size
+    )
+
+    graph_search_results = []
+    for single_query_results in vector_search_results:
+        graph_search_results.append(graph.find_relevant(single_query_results, graph_k))
+
+    return [
+        sublist1 + sublist2
+        for sublist1, sublist2 in zip(vector_search_results, graph_search_results)
+    ]
+
+
+def infer(
+    chroma_path,
+    graph,
+    workload_csv,
+    title_col,
+    abstract_col,
+    id2abstract_dict,
+    k,
+):
     df = pd.read_csv(workload_csv)
     chroma_client = chromadb.PersistentClient(path=chroma_path)
     vector_search_results = vector_search(
         df, title_col, chroma_client, k, get_query_col, id2abstract_dict
     )
-    ground_truths = vector_search(df, abstract_col, chroma_client, k, get_abstract_col, id2abstract_dict)
+    ground_truths = vector_search(
+        df, abstract_col, chroma_client, k, get_abstract_col, id2abstract_dict
+    )
+    hybrid_search_results = hybrid_search(
+        df,
+        title_col,
+        chroma_client,
+        graph,
+        math.ceil(k / 2),
+        math.floor(k / 2),
+        get_query_col,
+        id2abstract_dict,
+    )
     df[title_col] = pd.Series(vector_search_results)
     df[abstract_col] = pd.Series(ground_truths)
+    df[HYBRID_COL] = pd.Series(hybrid_search_results)
     return df
 
 
@@ -93,14 +150,33 @@ if __name__ == "__main__":
         default="../data/filtered_data.pickle",
         help="path to filtered_data pickle file",
     )
+    parser.add_argument(
+        "-g",
+        "--graph",
+        type=str,
+        default="../data/graph.pickle",
+        help="path to graph pickle file",
+    )
 
     args = parser.parse_args()
     with open(args.filtered_data_path, "rb") as f:
         filtered_data = pickle.load(f)
     id2title_dict = create_paper_id_to_title_dict(filtered_data)
     id2abstract_dict = create_id_to_abstract_dict(filtered_data)
+
+    if not os.path.exists(args.graph):
+        print("Building graph...")
+        graph = build_graph(filtered_data)
+        with open(args.graph, "wb") as f:
+            pickle.dump(graph, f)
+
+    graph = pickle.load(open(args.graph, "rb"))
+    print(
+        f"Graph has {len(graph.get_data_ids_sorted_by_num_edges())} data points attached to {len(graph.get_keyword_ids_sorted_by_num_edges())} keywords"
+    )
     result_df = infer(
         args.chroma,
+        graph,
         args.workload_csv,
         args.titles,
         args.abstracts,
