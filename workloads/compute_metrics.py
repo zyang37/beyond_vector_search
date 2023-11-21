@@ -13,6 +13,31 @@ from pprint import pprint
 import multiprocessing
 from sklearn.metrics import accuracy_score
 
+# TODO: double check compute_percent_include
+def compute_percent_include(gt, pred):
+    '''
+    Compute the percentage of ground truth that is included in the prediction
+    '''
+    counter = 0
+    for p in pred:
+        if p in gt: counter += 1
+    # print(counter)
+    # print(len(gt))
+    return counter / len(gt)
+
+def batch_compute_percent_include(gt_list, pred_list):
+    '''
+    Compute the percentage of ground truth that is included in the prediction for a batch of data, return a list of percentages
+    '''
+    return [compute_percent_include(gt, pred) for gt, pred in zip(gt_list, pred_list)]
+
+def mproc_batch_compute_percent_include(args):
+    '''
+    Compute the percentage of ground truth that is included in the prediction for a batch of data, multiprocess version
+    '''
+    gt_list, pred_list, percent_include_list, normalize = args
+    percent_include_list.extend(batch_compute_percent_include(gt_list, pred_list))
+
 def compute_accuracy(gt, pred, normalize=True):
     '''
     Compute accuracy
@@ -68,7 +93,8 @@ if __name__ == '__main__':
         # accuracies.extend(batch_accuracy)
         args_list.append( (batch_gt, batch_pred, accuracy_list, acc_normalize) )
     with multiprocessing.Pool(processes=num_processes) as pool:
-        pool.map(mproc_batch_compute_accuracy, args_list)
+        # pool.map(mproc_batch_compute_accuracy, args_list)
+        pool.map(mproc_batch_compute_percent_include, args_list)
 
     # accuracies to numpy array
     accuracies = np.array(accuracy_list)
