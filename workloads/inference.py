@@ -1,8 +1,15 @@
+'''
+This script is used to run inference on a workload csv file.
+The workload csv file should have a column named "query" that contains the queries.
+The script will save 3 results (GT, vector search, hybrid search) to the csv file.
+The name of the columns are the same as the collection names (in chroma db).
+'''
+
 import pandas as pd
 import chromadb
 import argparse
 import pickle
-from tqdm import tqdm
+from tqdm.auto import tqdm
 import os
 import sys
 import math
