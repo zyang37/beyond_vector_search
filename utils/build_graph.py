@@ -30,6 +30,7 @@ def build_graph(df):
     categories = df["categories"].map(parse_categories)
     journals = df["journal-ref"].map(parse_journal)
     years = df["update_date"].map(parse_year)
+    df["id"] = df["id"].astype("string")
     data_ids = set(df["id"].tolist())
 
     for idx in range(df.shape[0]):
