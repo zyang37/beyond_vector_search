@@ -1,9 +1,9 @@
-'''
+"""
 This script is used to run inference on a workload csv file.
 The workload csv file should have a column named "query" that contains the queries.
 The script will save 3 results (GT, vector search, hybrid search) to the csv file.
 The name of the columns are the same as the collection names (in chroma db).
-'''
+"""
 
 import pandas as pd
 import chromadb
@@ -18,6 +18,7 @@ sys.path.append("../")
 from utils.build_graph import build_graph
 
 HYBRID_COL = "hybrid"
+WEIGHTED_HYBRID_COL = "weighted_hybrid"
 
 
 def create_paper_id_to_title_dict(filtered_data):
@@ -74,6 +75,40 @@ def hybrid_search(
     ]
 
 
+def weighted_hybrid_search(
+    df,
+    coll_name,
+    client,
+    graph,
+    vector_k,
+    graph_k,
+    get_query_func,
+    id2abstract_dict,
+    keyword_to_edge_weights,
+    hop_penalty,
+    batch_size=50,
+):
+    vector_search_results = vector_search(
+        df, coll_name, client, vector_k, get_query_func, id2abstract_dict, batch_size
+    )
+
+    graph.define_edge_weight_by_keyword_and_hop_penalty(
+        keyword_to_edge_weights, hop_penalty
+    )
+    graph_search_results = []
+    for single_query_results in vector_search_results:
+        graph_search_results.append(
+            graph.find_relevant_weighted(single_query_results, graph_k)
+        )
+        if len(graph_search_results[-1]) != graph_k:
+            print("WARNING: graph search results not enough")
+
+    return [
+        sublist1 + sublist2
+        for sublist1, sublist2 in zip(vector_search_results, graph_search_results)
+    ]
+
+
 def infer(
     chroma_path,
     graph,
@@ -101,9 +136,29 @@ def infer(
         get_query_col,
         id2abstract_dict,
     )
+    keyword_to_edge_weights = {
+        "author": 1,
+        "category": 4,
+        "journal": 1,
+        "year": 1,
+    }
+    hop_penalty = 1
+    weighted_hybrid_search_results = weighted_hybrid_search(
+        df,
+        title_col,
+        chroma_client,
+        graph,
+        math.ceil(k / 2),
+        math.floor(k / 2),
+        get_query_col,
+        id2abstract_dict,
+        keyword_to_edge_weights,
+        hop_penalty,
+    )
     df[title_col] = pd.Series(vector_search_results)
     df[abstract_col] = pd.Series(ground_truths)
     df[HYBRID_COL] = pd.Series(hybrid_search_results)
+    df[WEIGHTED_HYBRID_COL] = pd.Series(weighted_hybrid_search_results)
     return df
 
 
