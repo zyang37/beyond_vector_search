@@ -28,7 +28,7 @@ from keyword_extractor import *
 
 
 class QueryTemplate:
-    def __init__(self):
+    def __init__(self, prob_cfg: dict = None):
         self.title = None
         self.author = []
         self.year = None
@@ -37,13 +37,16 @@ class QueryTemplate:
         self.journal = None
         self.abstract = None
 
-        self.infor_prob = {
-            "author": 0.3,
-            "year": 0.3,
-            "categories": 0.3,
-            "keywords": 1,
-            "journal": 0.3,
-        }
+        if prob_cfg:
+            self.infor_prob = prob_cfg
+        else:
+            self.infor_prob = {
+                "author": 0.3,
+                "year": 0.3,
+                "categories": 0.3,
+                "keywords": 1,
+                "journal": 0.3,
+            }
 
     def generate_queries(self, title=False, num=1):
         # generate a list of queries
@@ -92,19 +95,36 @@ class QueryTemplate:
         self.year = int(info["update_date"].split("-")[0])
         self.categories = parse_categories(info["categories"])
 
-        # currently only use the top 30 keywords
         self.abstract = parse_abstract(info["abstract"])
-        self.keywords = remove_noise_from_keywords(
-            extract_keywords(self.abstract, score=False)[:30]
-        )
+        # keyword_scores: [(s1, k1), (s2, k2), ...]
+        self.keyword_scores_dict = extract_keywords(self.abstract, score=True)[:20]
+        # get list of score
+        self.keyword_weights = [s for s, k in self.keyword_scores_dict]
+        # get list of clean keywords, note: this might reduce the number of keywords
+        self.keywords = remove_noise_from_keywords([k for s, k in self.keyword_scores_dict])
+        if len(self.keywords) == 0:
+            '''
+            Note: some paper's abstract contains lots of math, and the keyword extractor cannot extract any keywords
+            '''
+            # if no keywords, use the original keywords
+            self.keywords = [k for s, k in self.keyword_scores_dict]
+
+        # adjust the weights of keywords
+        self.keyword_weights = self.keyword_weights[: len(self.keywords)]
+        self.keyword_scores_dict = self.keyword_scores_dict[: len(self.keywords)]
+
         self.journal = parse_journal(info["journal-ref"])
 
     def title_query(self):
         return " titled < {} >".format(self.title)
 
-    def author_query(self):
-        random_author = random.choice(self.author)
-        return " written by < {} >".format(random_author)
+    def author_query(self, max_num=3):
+        # random_author = random.choice(self.author)
+        max_num = min(max_num, len(self.author))
+        num = random.randint(1, max_num)
+        authors = random.sample(self.author, num)
+        random_author_list = "{}".format(" and ".join(authors))
+        return " written by < {} >".format(random_author_list)
 
     def year_query(self):
         return " from year {}".format(self.year)
@@ -113,9 +133,23 @@ class QueryTemplate:
         random_category = random.choice(self.categories)
         return " on < {} >".format(random_category)
 
-    def keywords_query(self):
-        random_keyword = random.choice(self.keywords)
-        return " about < {} >".format(random_keyword)
+    def keywords_query(self, max_num=5):
+        # random_keyword = random.choice(self.keywords)
+        # Randomly add more keywords (max 5), return str like "k1 and k2". no repeated keywords
+        num = random.randint(1, max_num)
+        if num > len(self.keywords):
+            '''
+            Note: some paper have very few keywords, 
+            so we need to make sure the number of keywords is not larger than the number of keywords in the paper
+            '''
+            # print(num, len(self.keywords))
+            # print("Title", self.title)
+            num = len(self.keywords)
+        
+        keywords = random.choices(self.keywords, k=num, weights=self.keyword_weights)
+        keywords = list(set(keywords))
+        random_keyword_list = "{}".format(" and ".join(keywords))
+        return " about < {} >".format(random_keyword_list)
 
     def journal_query(self):
         return " published at < {} >".format(self.journal)
@@ -172,6 +206,8 @@ if __name__ == "__main__":
         default=None,
         help="where to save the workload (full path/name.csv)",
     )
+    # add prob_cfg file path
+    parser.add_argument('--prob', type=str, default=None, help='path to the probability config file (json)')
 
     args = parser.parse_args()
 
@@ -180,15 +216,19 @@ if __name__ == "__main__":
     paper_num = args.paper_num
     num_queries_per_paper = args.num
     title = args.title
+    prob_cfg_path = args.prob
 
-    # You may want to change the probability of adding each information
-    infor_prob = {
-        "author": 0.5,
-        "year": 0.5,
-        "categories": 0.5,
-        "keywords": 0.5,
-        "journal": 0.5,
-    }
+    if prob_cfg_path:
+        with open(prob_cfg_path, 'r') as f:
+            infor_prob = json.load(f)
+    else:
+        infor_prob = {
+            "author": 0.5,
+            "year": 0.5,
+            "categories": 0.5,
+            "keywords": 0.5,
+            "journal": 0.5,
+        }
 
     file = open("../data/filtered_data.pickle", "rb")
     data = pickle.load(file)
