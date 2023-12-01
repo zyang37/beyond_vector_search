@@ -122,6 +122,20 @@ if __name__ == "__main__":
         required=True,
         help="the name of the hybrid prediction column",
     )
+    parser.add_argument(
+        "-ch",
+        "--chroma",
+        type=str,
+        default="../data/chroma_dbs/",
+        help="path to load chroma db collections",
+    )
+    parser.add_argument(
+        "-a",
+        "--abstracts",
+        type=str,
+        default="abstracts",
+        help="ChromaDB collection name that stores the embeddings of abstracts",
+    )
     args = parser.parse_args()
 
     csv_file = args.csv
@@ -148,10 +162,8 @@ if __name__ == "__main__":
     args_list_vector = []
     args_list_hybrid = []
 
-    chroma_path = "../data/chroma_dbs/"
-    abstract_col = "abstracts"
-    client = chromadb.PersistentClient(path=chroma_path)
-    abstract_collection = client.get_collection(name=abstract_col)
+    client = chromadb.PersistentClient(path=args.chroma)
+    abstract_collection = client.get_collection(name=args.abstracts)
 
     for i in tqdm(range(0, len(gt_list), batch_size)):
         batch_gt = gt_list[i : i + batch_size]
