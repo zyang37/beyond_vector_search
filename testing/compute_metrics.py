@@ -183,9 +183,10 @@ if __name__ == "__main__":
     acc_normalize = True
     accuracy_lists = []
     args_lists = []
-    for i in range(len(lists_to_eval)):
+    for i in range(1, len(lists_to_eval)):
         accuracy_lists.append(manager.list())
         args_lists.append([])
+    print(args_lists)
 
     # loop through the data a batch at a time
     batch_size = 10000
@@ -199,12 +200,12 @@ if __name__ == "__main__":
         for j in range(len(lists_to_eval)):
             batches.append(lists_to_eval[j][i : i + batch_size])
 
-        for j in range(1, len(lists_to_eval)):
+        for j in range(len(args_lists)):
             if args.metrics == "distances":
                 args_lists[j].append(
                     (
                         batches[0],  # We assume the first batch is the ground truth
-                        batches[j],
+                        batches[j + 1],
                         accuracy_lists[j],
                         acc_normalize,
                         abstract_collection,
@@ -214,7 +215,7 @@ if __name__ == "__main__":
                 args_lists[j].append(
                     (
                         batches[0],  # We assume the first batch is the ground truth
-                        batches[j],
+                        batches[j + 1],
                         accuracy_lists[j],
                         acc_normalize,
                     )
@@ -222,19 +223,19 @@ if __name__ == "__main__":
 
     # Actually compute the metrics
     if args.metrics == "distances":
-        for i in range(1, len(args_lists)):
-            for arg in args_lists[i]:
+        for args_list in args_lists:
+            for arg in args_list:
                 mproc_batch_compute_distance_metrics(arg)
     elif args.metrics == "accuracy":
         with multiprocessing.Pool(processes=num_processes) as pool:
-            for i in range(1, len(args_lists)):
-                for arg in args_lists[i]:
-                    pool.map(mproc_batch_compute_accuracy, arg)
+            for a_list in args_lists:
+                for arg in a_list:
+                    pool.map(mproc_batch_compute_accuracy, [arg])
     else:  # percent_include
         with multiprocessing.Pool(processes=num_processes) as pool:
-            for i in range(1, len(args_lists)):
-                for arg in args_lists[i]:
-                    pool.map(mproc_batch_compute_percent_include, arg)
+            for args_list in args_lists:
+                for arg in args_list:
+                    pool.map(mproc_batch_compute_percent_include, [arg])
 
     """
     for arg in args_list_vector:
@@ -244,10 +245,12 @@ if __name__ == "__main__":
         mproc_batch_compute_distance_metrics(arg)
     """
 
-    for i in range(1, len(accuracy_lists)):
-        accuracy = np.array(accuracy_lists[i])
-        print(f"{cols_to_eval[i]} ACCURACY:")
+    cur_col = 1
+    for accuracy_list in accuracy_lists:
+        accuracy = np.array(accuracy_list)
+        print(f"{cols_to_eval[cur_col]} ACCURACY:")
         print(f"Avg accuracy: {accuracy.mean()}")
         print(f"Accuracy std: {accuracy.std()}")
         print(f"Accuracy max: {accuracy.max()}")
         print(f"Accuracy min: {accuracy.min()}\n")
+        cur_col += 1

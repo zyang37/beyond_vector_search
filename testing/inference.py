@@ -176,7 +176,7 @@ if __name__ == "__main__":
         "-s",
         "--save",
         type=str,
-        default="../data/inference_results",
+        default="inference_results",
         help="folder path to save the results",
     )
     parser.add_argument(
