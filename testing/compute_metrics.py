@@ -128,6 +128,13 @@ if __name__ == "__main__":
         help="the name of the hybrid prediction column",
     )
     parser.add_argument(
+        "-whd",
+        "--weighted_hybrid_pred",
+        type=str,
+        required=True,
+        help="the name of the weighted hybrid prediction column",
+    )
+    parser.add_argument(
         "-ch",
         "--chroma",
         type=str,
@@ -150,83 +157,84 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    csv_file = args.csv
-    gt_col = args.ground_true
-    pred_col = args.pred
-    hybrid_col = args.hybrid_pred
     num_processes = args.proc
-
+    csv_file = args.csv
     df = pd.read_csv(csv_file)
+
+    potential_args_to_eval = [
+        args.ground_true,
+        args.pred,
+        args.hybrid_pred,
+        args.weighted_hybrid_pred,
+    ]
+    cols_to_eval = []
+    for arg in potential_args_to_eval:
+        if arg is not None and arg in df.columns:
+            cols_to_eval.append(arg)
 
     # compute metrics
     manager = multiprocessing.Manager()
 
-    gt_list = df[gt_col].apply(ast.literal_eval).tolist()
-    pred_list = df[pred_col].apply(ast.literal_eval).tolist()
-    hybrid_list = df[hybrid_col].apply(ast.literal_eval).tolist()
+    lists_to_eval = []
+    for col in cols_to_eval:
+        lists_to_eval.append(df[col].apply(ast.literal_eval).tolist())
 
     # 1. Accuracy
     acc_normalize = True
-    accuracy_list_vector = manager.list()
-    accuracy_list_hybrid = manager.list()
+    accuracy_lists = []
+    args_lists = []
+    for i in range(len(lists_to_eval)):
+        accuracy_lists.append(manager.list())
+        args_lists.append([])
+
     # loop through the data a batch at a time
     batch_size = 10000
-    args_list_vector = []
-    args_list_hybrid = []
-
+    abstract_collection = None
     if args.metrics == "distances":
         client = chromadb.PersistentClient(path=args.chroma)
         abstract_collection = client.get_collection(name=args.abstracts)
 
-    for i in tqdm(range(0, len(gt_list), batch_size)):
-        batch_gt = gt_list[i : i + batch_size]
-        batch_pred = pred_list[i : i + batch_size]
-        batch_hybrid = hybrid_list[i : i + batch_size]
-        # batch_accuracy = batch_compute_accuracy(batch_gt, batch_pred)
-        # accuracies.extend(batch_accuracy)
-        if args.metrics == "distances":
-            args_list_vector.append(
-                (
-                    batch_gt,
-                    batch_pred,
-                    accuracy_list_vector,
-                    acc_normalize,
-                    abstract_collection,
-                )
-            )
-            args_list_hybrid.append(
-                (
-                    batch_gt,
-                    batch_hybrid,
-                    accuracy_list_hybrid,
-                    acc_normalize,
-                    abstract_collection,
-                )
-            )
-        else:
-            # Accuracy and percentage include
-            args_list_vector.append(
-                (batch_gt, batch_pred, accuracy_list_vector, acc_normalize)
-            )
-            args_list_hybrid.append(
-                (batch_gt, batch_hybrid, accuracy_list_hybrid, acc_normalize)
-            )
-    if args.metrics == "distances":
-        # currently can't support multiprocessing because of connections to chromadb
-        for arg in args_list_vector:
-            mproc_batch_compute_distance_metrics(arg)
+    for i in tqdm(range(0, len(lists_to_eval[0]), batch_size)):
+        batches = []
+        for j in range(len(lists_to_eval)):
+            batches.append(lists_to_eval[j][i : i + batch_size])
 
-        for arg in args_list_hybrid:
-            mproc_batch_compute_distance_metrics(arg)
-    else:
-        with multiprocessing.Pool(processes=num_processes) as pool:
-            if args.metrics == "accuracy":
-                pool.map(mproc_batch_compute_accuracy, args_list_vector)
-                pool.map(mproc_batch_compute_accuracy, args_list_hybrid)
+        for j in range(1, len(lists_to_eval)):
+            if args.metrics == "distances":
+                args_lists[j].append(
+                    (
+                        batches[0],  # We assume the first batch is the ground truth
+                        batches[j],
+                        accuracy_lists[j],
+                        acc_normalize,
+                        abstract_collection,
+                    )
+                )
             else:
-                # percent_include
-                pool.map(mproc_batch_compute_percent_include, args_list_vector)
-                pool.map(mproc_batch_compute_percent_include, args_list_hybrid)
+                args_lists[j].append(
+                    (
+                        batches[0],  # We assume the first batch is the ground truth
+                        batches[j],
+                        accuracy_lists[j],
+                        acc_normalize,
+                    )
+                )
+
+    # Actually compute the metrics
+    if args.metrics == "distances":
+        for i in range(1, len(args_lists)):
+            for arg in args_lists[i]:
+                mproc_batch_compute_distance_metrics(arg)
+    elif args.metrics == "accuracy":
+        with multiprocessing.Pool(processes=num_processes) as pool:
+            for i in range(1, len(args_lists)):
+                for arg in args_lists[i]:
+                    pool.map(mproc_batch_compute_accuracy, arg)
+    else:  # percent_include
+        with multiprocessing.Pool(processes=num_processes) as pool:
+            for i in range(1, len(args_lists)):
+                for arg in args_lists[i]:
+                    pool.map(mproc_batch_compute_percent_include, arg)
 
     """
     for arg in args_list_vector:
@@ -236,17 +244,10 @@ if __name__ == "__main__":
         mproc_batch_compute_distance_metrics(arg)
     """
 
-    # accuracies to numpy array
-    accuracies_vector = np.array(accuracy_list_vector)
-    print("VECTOR ACCURACY:")
-    print(f"Avg accuracy: {accuracies_vector.mean()}")
-    print(f"Accuracy std: {accuracies_vector.std()}")
-    print(f"Accuracy max: {accuracies_vector.max()}")
-    print(f"Accuracy min: {accuracies_vector.min()}\n")
-
-    accuracies_hybrid = np.array(accuracy_list_hybrid)
-    print("HYBRID ACCURACY:")
-    print(f"Avg accuracy: {accuracies_hybrid.mean()}")
-    print(f"Accuracy std: {accuracies_hybrid.std()}")
-    print(f"Accuracy max: {accuracies_hybrid.max()}")
-    print(f"Accuracy min: {accuracies_hybrid.min()}")
+    for i in range(1, len(accuracy_lists)):
+        accuracy = np.array(accuracy_lists[i])
+        print(f"{cols_to_eval[i]} ACCURACY:")
+        print(f"Avg accuracy: {accuracy.mean()}")
+        print(f"Accuracy std: {accuracy.std()}")
+        print(f"Accuracy max: {accuracy.max()}")
+        print(f"Accuracy min: {accuracy.min()}\n")

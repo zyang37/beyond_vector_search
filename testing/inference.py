@@ -13,6 +13,7 @@ from tqdm.auto import tqdm
 import os
 import sys
 import math
+from pathlib import Path
 
 sys.path.append("../")
 from utils.build_graph import build_graph
@@ -175,8 +176,8 @@ if __name__ == "__main__":
         "-s",
         "--save",
         type=str,
-        default="../data/inference_results.csv",
-        help="csv path to save the results",
+        default="../data/inference_results",
+        help="folder path to save the results",
     )
     parser.add_argument(
         "-c",
@@ -187,10 +188,10 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "-w",
-        "--workload-csv",
+        "--workloads",
         type=str,
-        default="workload.csv",
-        help="workload csv file",
+        default="workloads",
+        help="workload csv folder",
     )
     parser.add_argument(
         "-a",
@@ -245,15 +246,25 @@ if __name__ == "__main__":
     print(
         f"Graph has {len(graph.get_data_ids_sorted_by_num_edges())} data points attached to {len(graph.get_keyword_ids_sorted_by_num_edges())} keywords"
     )
-    print(args.chroma)
-    result_df = infer(
-        args.chroma,
-        graph,
-        args.workload_csv,
-        args.titles,
-        args.abstracts,
-        id2abstract_dict,
-        args.k,
-        args.graph_k,
-    )
-    result_df.to_csv(args.save)
+
+    workload_folder = Path(args.workloads)
+    for f in workload_folder.iterdir():
+        if f.suffix != ".csv":
+            continue
+        print(f"Processing {f.name}...")
+        result_df = infer(
+            args.chroma,
+            graph,
+            workload_folder / f.name,
+            args.titles,
+            args.abstracts,
+            id2abstract_dict,
+            args.k,
+            args.graph_k,
+        )
+
+        # Save the results
+        save_folder = Path(args.save)
+        if not save_folder.exists():
+            save_folder.mkdir()
+        result_df.to_csv(save_folder / f.name, index=False)

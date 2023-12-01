@@ -237,7 +237,9 @@ if __name__ == "__main__":
 
     # sampling and parse the data => dict
     sample_dict_list = []
+    print(len(data))
     samples = data.sample(paper_num)
+    print(len(samples))
     for index, row in samples.iterrows():
         one_sample = dict(row)
         sample_dict_list.append(one_sample)
