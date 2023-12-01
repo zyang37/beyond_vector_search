@@ -117,6 +117,7 @@ def infer(
     abstract_col,
     id2abstract_dict,
     k,
+    graph_k,
 ):
     df = pd.read_csv(workload_csv)
     chroma_client = chromadb.PersistentClient(path=chroma_path)
@@ -131,8 +132,8 @@ def infer(
         title_col,
         chroma_client,
         graph,
-        math.ceil(k / 2),
-        math.floor(k / 2),
+        k - graph_k,
+        graph_k,
         get_query_col,
         id2abstract_dict,
     )
@@ -148,8 +149,8 @@ def infer(
         title_col,
         chroma_client,
         graph,
-        math.ceil(k / 2),
-        math.floor(k / 2),
+        k - graph_k,
+        graph_k,
         get_query_col,
         id2abstract_dict,
         keyword_to_edge_weights,
@@ -219,8 +220,16 @@ if __name__ == "__main__":
         default="../data/graph.pickle",
         help="path to graph pickle file",
     )
+    parser.add_argument(
+        "-l",
+        "--graph-k",
+        # required=True,
+        type=int,
+        help="number of k to retrieve for each query from graph",
+    )
 
     args = parser.parse_args()
+    assert args.graph_k < args.k
     with open(args.filtered_data_path, "rb") as f:
         filtered_data = pickle.load(f)
     id2title_dict = create_paper_id_to_title_dict(filtered_data)
@@ -236,6 +245,7 @@ if __name__ == "__main__":
     print(
         f"Graph has {len(graph.get_data_ids_sorted_by_num_edges())} data points attached to {len(graph.get_keyword_ids_sorted_by_num_edges())} keywords"
     )
+    print(args.chroma)
     result_df = infer(
         args.chroma,
         graph,
@@ -244,5 +254,6 @@ if __name__ == "__main__":
         args.abstracts,
         id2abstract_dict,
         args.k,
+        args.graph_k,
     )
     result_df.to_csv(args.save)
