@@ -23,8 +23,9 @@ sys.path.append("../")
 from utils.parse_arxiv import *
 from keyword_extractor import *
 
-# random.seed(0)
-# np.random.seed(0)
+# fix the random seed
+random.seed(0)
+np.random.seed(0)
 
 
 class QueryTemplate:
@@ -237,9 +238,9 @@ if __name__ == "__main__":
 
     # sampling and parse the data => dict
     sample_dict_list = []
-    print(len(data))
+    # print(len(data))
     samples = data.sample(paper_num)
-    print(len(samples))
+    # print(len(samples))
     for index, row in samples.iterrows():
         one_sample = dict(row)
         sample_dict_list.append(one_sample)
