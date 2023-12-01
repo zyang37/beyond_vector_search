@@ -15,7 +15,7 @@ from sklearn.metrics import accuracy_score
 import chromadb
 
 
-def compute_distance_metrics(gt, pred):
+def compute_distance_metrics(gt, pred, abstract_collection):
     gt_results = abstract_collection.get(ids=gt, include=["embeddings"])
     pred_results = abstract_collection.get(ids=pred, include=["embeddings"])
     gt_results = np.array(gt_results["embeddings"])
@@ -24,20 +24,25 @@ def compute_distance_metrics(gt, pred):
     return np.mean(distances)
 
 
-def batch_compute_distance_metrics(gt_list, pred_list):
+def batch_compute_distance_metrics(gt_list, pred_list, abstract_collection):
     """
     Compute the percentage of ground truth that is included in the prediction for a batch of data, return a list of percentages
     """
 
-    return [compute_distance_metrics(gt, pred) for gt, pred in zip(gt_list, pred_list)]
+    return [
+        compute_distance_metrics(gt, pred, abstract_collection)
+        for gt, pred in zip(gt_list, pred_list)
+    ]
 
 
 def mproc_batch_compute_distance_metrics(args):
     """
     Compute the percentage of ground truth that is included in the prediction for a batch of data, multiprocess version
     """
-    gt_list, pred_list, distance_list, normalize = args
-    distance_list.extend(batch_compute_distance_metrics(gt_list, pred_list))
+    gt_list, pred_list, distance_list, normalize, abstract_collection = args
+    distance_list.extend(
+        batch_compute_distance_metrics(gt_list, pred_list, abstract_collection)
+    )
 
 
 # TODO: double check compute_percent_include
@@ -136,6 +141,13 @@ if __name__ == "__main__":
         default="abstracts",
         help="ChromaDB collection name that stores the embeddings of abstracts",
     )
+    parser.add_argument(
+        "-m",
+        "--metrics",
+        type=str,
+        default="distances",
+        help="Specify the metrics to use. Currently supporting accuracy, percent_include and distances",
+    )
     args = parser.parse_args()
 
     csv_file = args.csv
@@ -162,8 +174,9 @@ if __name__ == "__main__":
     args_list_vector = []
     args_list_hybrid = []
 
-    client = chromadb.PersistentClient(path=args.chroma)
-    abstract_collection = client.get_collection(name=args.abstracts)
+    if args.metrics == "distances":
+        client = chromadb.PersistentClient(path=args.chroma)
+        abstract_collection = client.get_collection(name=args.abstracts)
 
     for i in tqdm(range(0, len(gt_list), batch_size)):
         batch_gt = gt_list[i : i + batch_size]
@@ -171,22 +184,57 @@ if __name__ == "__main__":
         batch_hybrid = hybrid_list[i : i + batch_size]
         # batch_accuracy = batch_compute_accuracy(batch_gt, batch_pred)
         # accuracies.extend(batch_accuracy)
-        args_list_vector.append(
-            (batch_gt, batch_pred, accuracy_list_vector, acc_normalize)
-        )
-        args_list_hybrid.append(
-            (batch_gt, batch_hybrid, accuracy_list_hybrid, acc_normalize)
-        )
-    """
-    with multiprocessing.Pool(processes=num_processes) as pool:
-        pool.map(mproc_batch_compute_percent_include, args_list_vector)
-        pool.map(mproc_batch_compute_percent_include, args_list_hybrid)
+        if args.metrics == "distances":
+            args_list_vector.append(
+                (
+                    batch_gt,
+                    batch_pred,
+                    accuracy_list_vector,
+                    acc_normalize,
+                    abstract_collection,
+                )
+            )
+            args_list_hybrid.append(
+                (
+                    batch_gt,
+                    batch_hybrid,
+                    accuracy_list_hybrid,
+                    acc_normalize,
+                    abstract_collection,
+                )
+            )
+        else:
+            # Accuracy and percentage include
+            args_list_vector.append(
+                (batch_gt, batch_pred, accuracy_list_vector, acc_normalize)
+            )
+            args_list_hybrid.append(
+                (batch_gt, batch_hybrid, accuracy_list_hybrid, acc_normalize)
+            )
+    if args.metrics == "distances":
+        # currently can't support multiprocessing because of connections to chromadb
+        for arg in args_list_vector:
+            mproc_batch_compute_distance_metrics(arg)
+
+        for arg in args_list_hybrid:
+            mproc_batch_compute_distance_metrics(arg)
+    else:
+        with multiprocessing.Pool(processes=num_processes) as pool:
+            if args.metrics == "accuracy":
+                pool.map(mproc_batch_compute_accuracy, args_list_vector)
+                pool.map(mproc_batch_compute_accuracy, args_list_hybrid)
+            else:
+                # percent_include
+                pool.map(mproc_batch_compute_percent_include, args_list_vector)
+                pool.map(mproc_batch_compute_percent_include, args_list_hybrid)
+
     """
     for arg in args_list_vector:
         mproc_batch_compute_distance_metrics(arg)
 
     for arg in args_list_hybrid:
         mproc_batch_compute_distance_metrics(arg)
+    """
 
     # accuracies to numpy array
     accuracies_vector = np.array(accuracy_list_vector)
