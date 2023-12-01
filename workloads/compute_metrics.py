@@ -12,32 +12,62 @@ from tqdm import tqdm
 from pprint import pprint
 import multiprocessing
 from sklearn.metrics import accuracy_score
+import chromadb
+
+
+def compute_distance_metrics(gt, pred):
+    gt_results = abstract_collection.get(ids=gt, include=["embeddings"])
+    pred_results = abstract_collection.get(ids=pred, include=["embeddings"])
+    gt_results = np.array(gt_results["embeddings"])
+    pred_results = np.array(pred_results["embeddings"])
+    distances = np.linalg.norm((gt_results - pred_results), axis=1)
+    return np.mean(distances)
+
+
+def batch_compute_distance_metrics(gt_list, pred_list):
+    """
+    Compute the percentage of ground truth that is included in the prediction for a batch of data, return a list of percentages
+    """
+
+    return [compute_distance_metrics(gt, pred) for gt, pred in zip(gt_list, pred_list)]
+
+
+def mproc_batch_compute_distance_metrics(args):
+    """
+    Compute the percentage of ground truth that is included in the prediction for a batch of data, multiprocess version
+    """
+    gt_list, pred_list, distance_list, normalize = args
+    distance_list.extend(batch_compute_distance_metrics(gt_list, pred_list))
 
 
 # TODO: double check compute_percent_include
 def compute_percent_include(gt, pred):
-    '''
+    """
     Compute the percentage of ground truth that is included in the prediction
-    '''
+    """
     counter = 0
     for p in pred:
-        if p in gt: counter += 1
+        if p in gt:
+            counter += 1
     # print(counter)
     # print(len(gt))
     return counter / len(gt)
 
+
 def batch_compute_percent_include(gt_list, pred_list):
-    '''
+    """
     Compute the percentage of ground truth that is included in the prediction for a batch of data, return a list of percentages
-    '''
+    """
     return [compute_percent_include(gt, pred) for gt, pred in zip(gt_list, pred_list)]
 
+
 def mproc_batch_compute_percent_include(args):
-    '''
+    """
     Compute the percentage of ground truth that is included in the prediction for a batch of data, multiprocess version
-    '''
+    """
     gt_list, pred_list, percent_include_list, normalize = args
     percent_include_list.extend(batch_compute_percent_include(gt_list, pred_list))
+
 
 def compute_accuracy(gt, pred, normalize=True):
     """
@@ -117,6 +147,12 @@ if __name__ == "__main__":
     batch_size = 10000
     args_list_vector = []
     args_list_hybrid = []
+
+    chroma_path = "../data/chroma_dbs/"
+    abstract_col = "abstracts"
+    client = chromadb.PersistentClient(path=chroma_path)
+    abstract_collection = client.get_collection(name=abstract_col)
+
     for i in tqdm(range(0, len(gt_list), batch_size)):
         batch_gt = gt_list[i : i + batch_size]
         batch_pred = pred_list[i : i + batch_size]
@@ -129,9 +165,16 @@ if __name__ == "__main__":
         args_list_hybrid.append(
             (batch_gt, batch_hybrid, accuracy_list_hybrid, acc_normalize)
         )
+    """
     with multiprocessing.Pool(processes=num_processes) as pool:
-        pool.map(mproc_batch_compute_accuracy, args_list_vector)
-        pool.map(mproc_batch_compute_accuracy, args_list_hybrid)
+        pool.map(mproc_batch_compute_percent_include, args_list_vector)
+        pool.map(mproc_batch_compute_percent_include, args_list_hybrid)
+    """
+    for arg in args_list_vector:
+        mproc_batch_compute_distance_metrics(arg)
+
+    for arg in args_list_hybrid:
+        mproc_batch_compute_distance_metrics(arg)
 
     # accuracies to numpy array
     accuracies_vector = np.array(accuracy_list_vector)
