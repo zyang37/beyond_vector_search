@@ -50,5 +50,5 @@ if __name__ == '__main__':
     # Extraction given the text.
     print(sample)
     print()
-    pprint(extract_keywords(sample, score=True))
+    pprint(extract_keywords(sample, score=False))
     print()
