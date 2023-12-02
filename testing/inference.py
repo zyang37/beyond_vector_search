@@ -123,7 +123,7 @@ def infer(
 ):
     df = pd.read_csv(workload_csv)
     if should_sample:
-        df = df.iloc[:20]
+        df = df.iloc[:150]
     chroma_client = chromadb.PersistentClient(path=chroma_path)
     vector_search_results = vector_search(
         df, title_col, chroma_client, k, get_query_col, id2abstract_dict
@@ -258,7 +258,7 @@ if __name__ == "__main__":
 
     workload_folder = Path(args.workloads)
     for f in workload_folder.iterdir():
-        for i in range(1, args.k):
+        for i in range(1, args.k, 4):
             graph_k = i
             if args.graph_k != -1:
                 graph_k = args.graph_k
