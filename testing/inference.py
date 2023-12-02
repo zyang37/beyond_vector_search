@@ -119,9 +119,11 @@ def infer(
     id2abstract_dict,
     k,
     graph_k,
+    should_sample=False,
 ):
     df = pd.read_csv(workload_csv)
-    df = df.iloc[:20]
+    if should_sample:
+        df = df.iloc[:20]
     chroma_client = chromadb.PersistentClient(path=chroma_path)
     vector_search_results = vector_search(
         df, title_col, chroma_client, k, get_query_col, id2abstract_dict
@@ -229,6 +231,12 @@ if __name__ == "__main__":
         type=int,
         help="number of k to retrieve for each query from graph",
     )
+    parser.add_argument(
+        "-ss",
+        "--should_sample",
+        action="store_true",
+        help="should sample (will only infer first 20 from each input file)",
+    )
 
     args = parser.parse_args()
     assert args.graph_k < args.k
@@ -250,22 +258,30 @@ if __name__ == "__main__":
 
     workload_folder = Path(args.workloads)
     for f in workload_folder.iterdir():
-        if f.suffix != ".csv":
-            continue
-        print(f"Processing {f.name}...")
-        result_df = infer(
-            args.chroma,
-            graph,
-            workload_folder / f.name,
-            args.titles,
-            args.abstracts,
-            id2abstract_dict,
-            args.k,
-            args.graph_k,
-        )
+        for i in range(1, args.k):
+            graph_k = i
+            if args.graph_k != -1:
+                graph_k = args.graph_k
+            if f.suffix != ".csv":
+                continue
+            print(f"Processing {f.name}...")
+            result_df = infer(
+                args.chroma,
+                graph,
+                workload_folder / f.name,
+                args.titles,
+                args.abstracts,
+                id2abstract_dict,
+                args.k,
+                graph_k,
+                args.should_sample,
+            )
 
-        # Save the results
-        save_folder = Path(args.save)
-        if not save_folder.exists():
-            save_folder.mkdir()
-        result_df.to_csv(save_folder / f.name, index=False)
+            # Save the results
+            save_folder = Path(args.save)
+            if not save_folder.exists():
+                save_folder.mkdir()
+            result_df.to_csv(save_folder / Path(f"{graph_k}_{f.name}"), index=False)
+
+            if args.graph_k != -1:
+                break
