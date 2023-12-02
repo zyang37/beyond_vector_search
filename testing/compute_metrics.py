@@ -8,11 +8,13 @@ import ast
 import argparse
 import numpy as np
 import pandas as pd
+from requests import get
 from tqdm import tqdm
 from pprint import pprint
 import multiprocessing
 from sklearn.metrics import accuracy_score
 import chromadb
+from pathlib import Path
 
 
 def compute_distance_metrics(gt, pred, abstract_collection):
@@ -20,6 +22,7 @@ def compute_distance_metrics(gt, pred, abstract_collection):
     pred_results = abstract_collection.get(ids=pred, include=["embeddings"])
     gt_results = np.array(gt_results["embeddings"])
     pred_results = np.array(pred_results["embeddings"])
+    gt_results = gt_results[: pred_results.shape[0], :]
     distances = np.linalg.norm((gt_results - pred_results), axis=1)
     return np.mean(distances)
 
@@ -99,10 +102,147 @@ def mproc_batch_compute_accuracy(args):
     acc_list.extend(batch_compute_accuracy(gt_list, pred_list, normalize=normalize))
 
 
+FILENAME_COL = "filename"
+
+
+def get_col_name(metric_name, query_name, stat_name):
+    return f"{metric_name}_{query_name}_{stat_name}"
+
+
+def append_results(results_df, accuracy_lists, cols_to_eval, metric_name):
+    cur_col = 1
+
+    for accuracy_list in accuracy_lists:
+        accuracy = np.array(accuracy_list)
+        query_name = cols_to_eval[cur_col]
+        row_loc = results_df.index[-1]
+
+        results_df.loc[
+            row_loc, get_col_name(metric_name, query_name, "mean")
+        ] = accuracy.mean()
+        results_df.loc[
+            row_loc, get_col_name(metric_name, query_name, "std")
+        ] = accuracy.std()
+        results_df.loc[
+            row_loc, get_col_name(metric_name, query_name, "max")
+        ] = accuracy.max()
+        results_df.loc[
+            row_loc, get_col_name(metric_name, query_name, "min")
+        ] = accuracy.min()
+
+        cur_col += 1
+
+
+def get_cols_to_eval(args, df):
+    potential_args_to_eval = [
+        args.ground_true,
+        args.pred,
+        args.hybrid_pred,
+        args.weighted_hybrid_pred,
+    ]
+    cols_to_eval = []
+    for arg in potential_args_to_eval:
+        if arg is not None and arg in df.columns:
+            cols_to_eval.append(arg)
+    return cols_to_eval
+
+
+def get_metrics_to_eval(args):
+    metrics_to_eval = []
+    if args.metrics == "distances":
+        metrics_to_eval.append("distances")
+    elif args.metrics == "accuracy":
+        metrics_to_eval.append("accuracy")
+    elif args.metrics == "include":
+        metrics_to_eval.append("percent_include")
+    else:
+        metrics_to_eval.append("distances")
+        metrics_to_eval.append("accuracy")
+        metrics_to_eval.append("percent_include")
+    return metrics_to_eval
+
+
+def process_metric(args, df, results_df, metric_name):
+    print(f"Processing {metric_name}")
+    cols_to_eval = get_cols_to_eval(args, df)
+
+    # compute metrics
+    manager = multiprocessing.Manager()
+
+    lists_to_eval = []
+    for col in cols_to_eval:
+        lists_to_eval.append(df[col].apply(ast.literal_eval).tolist())
+
+    # 1. Accuracy
+    acc_normalize = True
+    accuracy_lists = []
+    args_lists = []
+    for i in range(1, len(lists_to_eval)):
+        accuracy_lists.append(manager.list())
+        args_lists.append([])
+
+    # loop through the data a batch at a time
+    batch_size = 10000
+    abstract_collection = None
+    if metric_name == "distances":
+        client = chromadb.PersistentClient(path=args.chroma)
+        abstract_collection = client.get_collection(name=args.abstracts)
+
+    for i in tqdm(range(0, len(lists_to_eval[0]), batch_size)):
+        batches = []
+        for j in range(len(lists_to_eval)):
+            batches.append(lists_to_eval[j][i : i + batch_size])
+
+        for j in range(len(args_lists)):
+            if metric_name == "distances":
+                args_lists[j].append(
+                    (
+                        batches[0],  # We assume the first batch is the ground truth
+                        batches[j + 1],
+                        accuracy_lists[j],
+                        acc_normalize,
+                        abstract_collection,
+                    )
+                )
+            else:
+                args_lists[j].append(
+                    (
+                        batches[0],  # We assume the first batch is the ground truth
+                        batches[j + 1],
+                        accuracy_lists[j],
+                        acc_normalize,
+                    )
+                )
+
+    if metric_name == "distances":
+        for args_list in args_lists:
+            for arg in args_list:
+                mproc_batch_compute_distance_metrics(arg)
+        append_results(results_df, accuracy_lists, cols_to_eval, "distances")
+    elif metric_name == "accuracy":
+        with multiprocessing.Pool(processes=num_processes) as pool:
+            for a_list in args_lists:
+                for arg in a_list:
+                    pool.map(mproc_batch_compute_accuracy, [arg])
+        append_results(results_df, accuracy_lists, cols_to_eval, "accuracy")
+    elif metric_name == "percent_include":
+        with multiprocessing.Pool(processes=num_processes) as pool:
+            for args_list in args_lists:
+                for arg in args_list:
+                    pool.map(mproc_batch_compute_percent_include, [arg])
+        append_results(results_df, accuracy_lists, cols_to_eval, "percent_include")
+
+
 if __name__ == "__main__":
     # get a number from the command line
     parser = argparse.ArgumentParser(description="Generate a workload")
-    parser.add_argument("-c", "--csv", type=str, required=True, help="csv file to read")
+    parser.add_argument(
+        "-f",
+        "--folder",
+        type=str,
+        required=True,
+        help="folder to read csv file from",
+    )
     parser.add_argument(
         "-gt",
         "--ground_true",
@@ -155,102 +295,45 @@ if __name__ == "__main__":
         default="distances",
         help="Specify the metrics to use. Currently supporting accuracy, percent_include and distances",
     )
+    parser.add_argument(
+        "-s",
+        "--save",
+        type=str,
+        default="stats.csv",
+        help="file to save the results to",
+    )
     args = parser.parse_args()
-
     num_processes = args.proc
-    csv_file = args.csv
-    df = pd.read_csv(csv_file)
+    metrics_to_eval = get_metrics_to_eval(args)
+    results_df = pd.DataFrame()
+    inference_res_folder = Path(args.folder)
 
-    potential_args_to_eval = [
-        args.ground_true,
-        args.pred,
-        args.hybrid_pred,
-        args.weighted_hybrid_pred,
-    ]
-    cols_to_eval = []
-    for arg in potential_args_to_eval:
-        if arg is not None and arg in df.columns:
-            cols_to_eval.append(arg)
+    for f in inference_res_folder.iterdir():
+        if f.suffix != ".csv":
+            continue
+        print(f"Processing {f.name}")
+        df = pd.read_csv(f)
 
-    # compute metrics
-    manager = multiprocessing.Manager()
+        # Add the column names
+        if results_df.shape[1] == 0:
+            columns = ["filename"]
+            cols_to_eval = get_cols_to_eval(args, df)
+            for metric in metrics_to_eval:
+                for col in cols_to_eval[1:]:
+                    columns.append(get_col_name(metric, col, "mean"))
+                    columns.append(get_col_name(metric, col, "std"))
+                    columns.append(get_col_name(metric, col, "max"))
+                    columns.append(get_col_name(metric, col, "min"))
+            results_df = pd.DataFrame(columns=columns)
+        row = [f.name]
+        for i in range(results_df.shape[1] - 1):
+            row.append(np.nan)
+        results_df = results_df.append(
+            pd.Series(row, index=results_df.columns), ignore_index=True
+        )
 
-    lists_to_eval = []
-    for col in cols_to_eval:
-        lists_to_eval.append(df[col].apply(ast.literal_eval).tolist())
+        for metric in metrics_to_eval:
+            process_metric(args, df, results_df, metric)
 
-    # 1. Accuracy
-    acc_normalize = True
-    accuracy_lists = []
-    args_lists = []
-    for i in range(1, len(lists_to_eval)):
-        accuracy_lists.append(manager.list())
-        args_lists.append([])
-    print(args_lists)
-
-    # loop through the data a batch at a time
-    batch_size = 10000
-    abstract_collection = None
-    if args.metrics == "distances":
-        client = chromadb.PersistentClient(path=args.chroma)
-        abstract_collection = client.get_collection(name=args.abstracts)
-
-    for i in tqdm(range(0, len(lists_to_eval[0]), batch_size)):
-        batches = []
-        for j in range(len(lists_to_eval)):
-            batches.append(lists_to_eval[j][i : i + batch_size])
-
-        for j in range(len(args_lists)):
-            if args.metrics == "distances":
-                args_lists[j].append(
-                    (
-                        batches[0],  # We assume the first batch is the ground truth
-                        batches[j + 1],
-                        accuracy_lists[j],
-                        acc_normalize,
-                        abstract_collection,
-                    )
-                )
-            else:
-                args_lists[j].append(
-                    (
-                        batches[0],  # We assume the first batch is the ground truth
-                        batches[j + 1],
-                        accuracy_lists[j],
-                        acc_normalize,
-                    )
-                )
-
-    # Actually compute the metrics
-    if args.metrics == "distances":
-        for args_list in args_lists:
-            for arg in args_list:
-                mproc_batch_compute_distance_metrics(arg)
-    elif args.metrics == "accuracy":
-        with multiprocessing.Pool(processes=num_processes) as pool:
-            for a_list in args_lists:
-                for arg in a_list:
-                    pool.map(mproc_batch_compute_accuracy, [arg])
-    else:  # percent_include
-        with multiprocessing.Pool(processes=num_processes) as pool:
-            for args_list in args_lists:
-                for arg in args_list:
-                    pool.map(mproc_batch_compute_percent_include, [arg])
-
-    """
-    for arg in args_list_vector:
-        mproc_batch_compute_distance_metrics(arg)
-
-    for arg in args_list_hybrid:
-        mproc_batch_compute_distance_metrics(arg)
-    """
-
-    cur_col = 1
-    for accuracy_list in accuracy_lists:
-        accuracy = np.array(accuracy_list)
-        print(f"{cols_to_eval[cur_col]} ACCURACY:")
-        print(f"Avg accuracy: {accuracy.mean()}")
-        print(f"Accuracy std: {accuracy.std()}")
-        print(f"Accuracy max: {accuracy.max()}")
-        print(f"Accuracy min: {accuracy.min()}\n")
-        cur_col += 1
+    # Save the results
+    results_df.to_csv(args.save, index=False)

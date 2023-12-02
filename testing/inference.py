@@ -121,6 +121,7 @@ def infer(
     graph_k,
 ):
     df = pd.read_csv(workload_csv)
+    df = df.iloc[:20]
     chroma_client = chromadb.PersistentClient(path=chroma_path)
     vector_search_results = vector_search(
         df, title_col, chroma_client, k, get_query_col, id2abstract_dict
