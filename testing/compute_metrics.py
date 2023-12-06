@@ -328,9 +328,13 @@ if __name__ == "__main__":
         row = [f.name]
         for i in range(results_df.shape[1] - 1):
             row.append(np.nan)
-        results_df = results_df.append(
-            pd.Series(row, index=results_df.columns), ignore_index=True
-        )
+        
+        # results_df = results_df.append(
+        #     pd.Series(row, index=results_df.columns), ignore_index=True
+        # )
+        new_row = pd.Series(row, index=results_df.columns)
+        results_df = pd.concat([results_df, pd.DataFrame([new_row])], ignore_index=True)
+
 
         for metric in metrics_to_eval:
             process_metric(args, df, results_df, metric)
