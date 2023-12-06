@@ -18,6 +18,13 @@ from pathlib import Path
 sys.path.append("../")
 from utils.build_graph import build_graph
 
+# fix random seed for reproducibility
+import random
+import numpy as np
+
+random.seed(1)
+np.random.seed(1)
+
 HYBRID_COL = "hybrid"
 WEIGHTED_HYBRID_COL = "weighted_hybrid"
 
@@ -142,6 +149,16 @@ def weighted_hybrid_search_cut_off(
         for sublist1, sublist2 in zip(vector_search_results, graph_search_results)
     ]
 
+def list_to_str(l):
+    # given a python list obj: [1,2,3]
+    # return a string: "[1,2,3]"
+    # pandas can not handle list obj on a single cell...
+    return str(l).replace(" ", "")
+
+def reslist2liststr(reslist):
+    # reslist 2d list
+    # return a 1d list of string_list
+    return [list_to_str(x) for x in reslist]
 
 def infer(
     chroma_path,
@@ -208,10 +225,20 @@ def infer(
         hop_penalty,
         cut_off=args.cut_off,
     )
-    df[title_col] = pd.Series(vector_search_results)
-    df[abstract_col] = pd.Series(ground_truths)
-    df[HYBRID_COL] = pd.Series(hybrid_search_results)
-    df[WEIGHTED_HYBRID_COL] = pd.Series(weighted_hybrid_search_results)
+    vector_search_results = reslist2liststr(vector_search_results)
+    ground_truths = reslist2liststr(ground_truths)
+    hybrid_search_results = reslist2liststr(hybrid_search_results)
+    weighted_hybrid_search_results = reslist2liststr(weighted_hybrid_search_results)
+
+    df[title_col] = vector_search_results
+    df[abstract_col] = ground_truths
+    df[HYBRID_COL] = hybrid_search_results
+    df[WEIGHTED_HYBRID_COL] = weighted_hybrid_search_results
+
+    # df[title_col] = pd.Series(vector_search_results)
+    # df[abstract_col] = pd.Series(ground_truths)
+    # df[HYBRID_COL] = pd.Series(hybrid_search_results)
+    # df[WEIGHTED_HYBRID_COL] = pd.Series(weighted_hybrid_search_results)
     return df
 
 
@@ -337,6 +364,7 @@ if __name__ == "__main__":
             if not save_folder.exists():
                 save_folder.mkdir()
             result_df.to_csv(save_folder / Path(f"{graph_k}_{f.name}"), index=False)
+            print(f"Saved to {save_folder / Path(f'k{args.k}_gk{graph_k}_{f.name}')}\n")
 
             if args.graph_k != -1:
                 break
