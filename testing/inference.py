@@ -363,7 +363,7 @@ if __name__ == "__main__":
             save_folder = Path(args.save)
             if not save_folder.exists():
                 save_folder.mkdir()
-            result_df.to_csv(save_folder / Path(f"{graph_k}_{f.name}"), index=False)
+            result_df.to_csv(save_folder / Path(f"k{args.k}_gk{graph_k}_{f.name}"), index=False)
             print(f"Saved to {save_folder / Path(f'k{args.k}_gk{graph_k}_{f.name}')}\n")
 
             if args.graph_k != -1:

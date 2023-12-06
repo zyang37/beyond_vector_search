@@ -77,8 +77,13 @@ if __name__ == "__main__":
     exp_counter = 1
     for cmd, msg in zip(compute_metrics_cmds, echo_msg):
         print("# Evaluation " + str(exp_counter))
-        exp_counter += 1
+
+        # print eval #
+        print("echo \"eval " + str(exp_counter) + "\"")
+
         # echo "k/gk"
         print(msg)
         print(cmd)
         print()
+        exp_counter += 1
+        
