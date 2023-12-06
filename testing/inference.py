@@ -110,6 +110,39 @@ def weighted_hybrid_search(
     ]
 
 
+def weighted_hybrid_search_cut_off(
+    df,
+    coll_name,
+    client,
+    graph,
+    k,
+    graph_k,
+    get_query_func,
+    id2abstract_dict,
+    keyword_to_edge_weights,
+    hop_penalty,
+    batch_size=50,
+    cut_off=0,
+):
+    vector_search_results = vector_search(
+        df, coll_name, client, k, get_query_func, id2abstract_dict, batch_size
+    )
+
+    graph.define_edge_weight_by_keyword_and_hop_penalty(
+        keyword_to_edge_weights, hop_penalty
+    )
+    graph_search_results = []
+    for single_query_results in vector_search_results:
+        graph_search_results.append(
+            graph.find_relevant_weighted_ranked(single_query_results, graph_k, cut_off)
+        )
+
+    return [
+        sublist1[: k - len(sublist2)] + sublist2
+        for sublist1, sublist2 in zip(vector_search_results, graph_search_results)
+    ]
+
+
 def infer(
     chroma_path,
     graph,
@@ -142,12 +175,13 @@ def infer(
         id2abstract_dict,
     )
     keyword_to_edge_weights = {
-        "author": 1,
+        "author": 4,
         "category": 4,
-        "journal": 1,
+        "journal": 2,
         "year": 1,
     }
     hop_penalty = 1
+    """
     weighted_hybrid_search_results = weighted_hybrid_search(
         df,
         title_col,
@@ -159,6 +193,20 @@ def infer(
         id2abstract_dict,
         keyword_to_edge_weights,
         hop_penalty,
+    )
+    """
+    weighted_hybrid_search_results = weighted_hybrid_search_cut_off(
+        df,
+        title_col,
+        chroma_client,
+        graph,
+        k,
+        graph_k,
+        get_query_col,
+        id2abstract_dict,
+        keyword_to_edge_weights,
+        hop_penalty,
+        cut_off=args.cut_off,
     )
     df[title_col] = pd.Series(vector_search_results)
     df[abstract_col] = pd.Series(ground_truths)
@@ -230,6 +278,13 @@ if __name__ == "__main__":
         # required=True,
         type=int,
         help="number of k to retrieve for each query from graph",
+    )
+    parser.add_argument(
+        "-co",
+        "--cut-off",
+        default=0,
+        type=int,
+        help="Priority cutoff, weighted ranked result will only include data whose priority is lower (better) than cutoff",
     )
     parser.add_argument(
         "-ss",

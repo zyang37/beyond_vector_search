@@ -1,3 +1,4 @@
+from ast import keyword
 from collections import Counter, defaultdict
 from typing import Any
 import heapq
@@ -159,6 +160,9 @@ class BipartiteGraphDict:
                 return -1 * value
         exit("Keyword not found in keyword_map")
 
+    def get_edge_weight_by_degree(self, keyword_id):
+        return -1 * len(self.keyword_dict[keyword_id])
+
     def add_edges_to_pq(
         self, ids_to_explore, explored_keyword_ids, edge_pq, hop_penalty
     ):
@@ -220,6 +224,84 @@ class BipartiteGraphDict:
         filtered_ids = []
         for x in sorted_ids:
             if x[0] not in input_ids_list:
+                filtered_ids.append(x[0])
+
+        return filtered_ids[:k]
+
+    def add_edges_to_pq_ranked(
+        self, ids_to_explore, explored_keyword_ids, edge_pq, hop_penalty, relevant_ids
+    ):
+        for id in ids_to_explore:
+            for keyword_id in self.data_dict[id]:
+                if keyword_id not in explored_keyword_ids.keys():
+                    explored_keyword_ids[keyword_id] = 1
+                    heapq.heappush(
+                        edge_pq,
+                        (
+                            min(
+                                self.get_edge_weight(keyword_id) + hop_penalty,
+                                0,
+                            ),
+                            keyword_id,
+                        ),
+                    )
+                else:
+                    # decrement the priority (make more important) of data that are directly connected to
+                    # the explored keywords
+                    for data_id in self.keyword_dict[keyword_id]:
+                        relevant_ids[data_id] -= explored_keyword_ids[keyword_id]
+                    explored_keyword_ids[keyword_id] += 1
+
+    def find_relevant_weighted_ranked(
+        self, input_ids_list: list[str], k: int, cut_off: int
+    ) -> list[Any]:
+        # Build a Counter object maybe associating each paper with the cost of the edges that discovered it
+        # While we have not found k relevant documents and we still have edges to explore
+        # Given the current ids_to_explore, construct a priority queue of all edges to explore
+        # Explore all of the edges that have the same priority and add the edges to an explored list and add the nodes from these edges to the input_ids_to_explore list as well as the relevant Counter list with the cost of the edge
+        # Go through the input ids to explore list and add all of the edges to the priority queue minus some constant as long as they aren't already in the explored list
+        # Repeat
+        relevant_ids = defaultdict(int)
+        edge_pq = []
+        explored_keyword_ids = {}
+        hop_penalty = 0
+
+        for id in input_ids_list:
+            relevant_ids[id] = 0
+        # Construct the initial list of edges to explore
+        self.add_edges_to_pq_ranked(
+            input_ids_list, explored_keyword_ids, edge_pq, hop_penalty, relevant_ids
+        )
+        hop_penalty += self.hop_penalty_per_round
+
+        # Loop until we find all of the ids or run out of edges
+        while len(relevant_ids) < k + len(input_ids_list) and len(edge_pq) != 0:
+            # Remove all of the edges with the same priority from the heap
+            ids_to_explore = []
+            top_priority, top_id = heapq.heappop(edge_pq)
+            for data_id in self.keyword_dict[top_id]:
+                relevant_ids[data_id] += top_priority
+                ids_to_explore.append(data_id)
+            while len(edge_pq) != 0 and edge_pq[0][0] == top_priority:
+                top_priority, top_id = heapq.heappop(edge_pq)
+                for data_id in self.keyword_dict[top_id]:
+                    relevant_ids[data_id] += top_priority
+                    ids_to_explore.append(data_id)
+
+            # Explore all of the edges that have the same priority
+            self.add_edges_to_pq_ranked(
+                ids_to_explore, explored_keyword_ids, edge_pq, hop_penalty, relevant_ids
+            )
+
+            hop_penalty += self.hop_penalty_per_round
+
+        # Sort ids by importance and filter out the initial ids
+        sorted_ids = sorted(
+            relevant_ids.items(), key=lambda item: item[1], reverse=False
+        )
+        filtered_ids = []
+        for x in sorted_ids:
+            if x[0] not in input_ids_list and x[1] <= cut_off:
                 filtered_ids.append(x[0])
 
         return filtered_ids[:k]
