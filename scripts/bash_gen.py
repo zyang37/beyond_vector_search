@@ -20,7 +20,7 @@ save_folder_root = "../data/results/"
 testing_dic = "zy_testing/"
 
 gk_ratios = [0.1, 0.3, 0.5, 0.7]
-k_gk_dict = {5: [3], 10: [3, 5, 7], 
+k_gk_dict = {5: [2], 10: [3, 5, 7], 
              50: [int(r*50) for r in gk_ratios], 
              100: [int(r*100) for r in gk_ratios], 
              500: [int(r*500) for r in gk_ratios], 
