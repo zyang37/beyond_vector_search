@@ -1,0 +1,100 @@
+       1. 1610.02975: find papers on < math.AG > about < verlinde formula computes and stable pointed curves and conformal blocks and conformal blocks naturally >
+       2. 1610.02975: find papers on < math.RT > about < conformal blocks and conformal blocks associated and get >
+       3. 1610.02975: find papers written by < JiuzuHong > about < twining type formula > published at < Adv. Math. (2019) >
+       4. 1610.02975: find papers from year 2019 about < diagram automorphism and conformal blocks and laced simple lie algebra admits and stable pointed curves and conformal blocks associated > published at < Adv. Math. (2019) >
+       5. 1610.02975: find papers on < math.MP > about < twining type formula and simple lie algebras and walton formula > published at < Adv. Math. (2019) >
+       6. 1610.02975: find papers from year 2019 about < walton formula and get and laced simple lie algebra admits > published at < Adv. Math. (2019) >
+       7. 1610.02975: find papers written by < JiuzuHong > about < stable pointed curves and diagram automorphism and conformal blocks associated and laced simple lie algebra admits > published at < Adv. Math. (2019) >
+       8. 1610.02975: find papers written by < JiuzuHong > about < verlinde formula > published at < Adv. Math. (2019) >
+       9. 1610.02975: find papers written by < JiuzuHong > about < diagram automorphism and simple lie algebras and conformal blocks associated > published at < Adv. Math. (2019) >
+      10. 1610.02975: find papers on < math.AG > about < conformal blocks naturally and nontrivial diagram automorphism and laced simple lie algebra admits >
+      11. 2004.07995: find papers from year 2020 about < deep learning based image segmentation and significantly improve beyond fully supervised model learning > published at < 2020 IEEE 16th International Symposium on Biomedical Imaging (ISBI 2020) >
+      12. 2004.07995: find papers written by < DorotheeAuer > from year 2020 about < improved iteratively using random subsets and initially trained using and annotated training samples and significantly improve beyond fully supervised model learning > published at < 2020 IEEE 16th International Symposium on Biomedical Imaging (ISBI 2020) >
+      13. 2004.07995: find papers written by < RuizheLi > on < cs.CV > about < significantly improve beyond fully supervised model learning and improved iteratively using random subsets and annotated training samples and incorporating unlabeled data > published at < 2020 IEEE 16th International Symposium on Biomedical Imaging (ISBI 2020) >
+      14. 2004.07995: find papers written by < RuizheLi and XinChen > from year 2020 on < cs.CV > about < decoder based dcnn and improved iteratively using random subsets and deep convolutional neural network and initially trained using and image segmentation based >
+      15. 2004.07995: find papers written by < DorotheeAuer and ChristianWagner and RuizheLi > on < cs.CV > about < incorporating unlabeled data and supervised learning framework and significantly improve beyond fully supervised model learning >
+      16. 2004.07995: find papers written by < XinChen and ChristianWagner and DorotheeAuer > on < cs.CV > about < image segmentation based > published at < 2020 IEEE 16th International Symposium on Biomedical Imaging (ISBI 2020) >
+      17. 2004.07995: find papers on < cs.CV > about < decoder based dcnn and supervised learning and initially trained model >
+      18. 2004.07995: find papers written by < XinChen and ChristianWagner > from year 2020 about < decoder based dcnn and significantly improve beyond fully supervised model learning > published at < 2020 IEEE 16th International Symposium on Biomedical Imaging (ISBI 2020) >
+      19. 2004.07995: find papers written by < XinChen and RuizheLi and DorotheeAuer > about < significantly improve beyond fully supervised model learning > published at < 2020 IEEE 16th International Symposium on Biomedical Imaging (ISBI 2020) >
+      20. 2004.07995: find papers from year 2020 about < deep learning based image segmentation and supervised learning and many medical applications and supervised learning framework and image segmentation based >
+      21.   805.0939: find papers on < cs.OH > about < fuel cell construction and tested >
+      22.   805.0939: find papers written by < RobertHahn > on < cs.OH > about < pem micro fuel cell system and autonomous systems and used and breathing pem micro fuel cells and demand hydrogen production >
+      23.   805.0939: find papers written by < RobertHahn > from year 2008 on < cs.OH > about < produces hydrogen and demand hydrogen production >
+      24.   805.0939: find papers written by < SteffenKrumbholz > on < cs.OH > about < fuel cell construction and pem micro fuel cell system and low power applications and battery replacement >
+      25.   805.0939: find papers from year 2008 about < fuel cell construction and pem micro fuel cell system and low power applications > published at < Dans Symposium on Design, Test, Integration and Packaging of MEMS/MOEMS - DTIP 2008, Nice : France (2008) >
+      26.   805.0939: find papers written by < SteffenKrumbholz and StefanWagner > on < cs.OH > about < breathing pem micro fuel cells and low power applications > published at < Dans Symposium on Design, Test, Integration and Packaging of MEMS/MOEMS - DTIP 2008, Nice : France (2008) >
+      27.   805.0939: find papers from year 2008 on < cs.OH > about < breathing pem micro fuel cells and low power applications > published at < Dans Symposium on Design, Test, Integration and Packaging of MEMS/MOEMS - DTIP 2008, Nice : France (2008) >
+      28.   805.0939: find papers written by < RobertHahn and HerbertReichl > on < cs.OH > about < several load profiles and breathing pem micro fuel cells > published at < Dans Symposium on Design, Test, Integration and Packaging of MEMS/MOEMS - DTIP 2008, Nice : France (2008) >
+      29.   805.0939: find papers written by < StefanWagner and RobertHahn and HerbertReichl > about < pem micro fuel cell system > published at < Dans Symposium on Design, Test, Integration and Packaging of MEMS/MOEMS - DTIP 2008, Nice : France (2008) >
+      30.   805.0939: find papers written by < HerbertReichl > on < cs.OH > about < fuel cell construction >
+      31.  2205.1168: find papers written by < DerekR.Harford > from year 2022 on < cs.LG > about < 15 million clinician activity logs collected and based prediction model and end deep learning framework >
+      32.  2205.1168: find papers about < large academic medical center demonstrates and scale clinician activity logs and significant public health concern affecting nearly half and evolving burnout risk >
+      33.  2205.1168: find papers written by < ChenyangLu and DerekR.Harford > on < cs.LG > about < natural hierarchical structure and scale clinician activity logs and hierarchical predictive model and predicting physician burnout based > published at < KDD 2022 >
+      34.  2205.1168: find papers on < cs.LG > about < natural hierarchical structure and hierarchical burnout prediction based > published at < KDD 2022 >
+      35.  2205.1168: find papers written by < ChenyangLu and DerekR.Harford > from year 2022 on < cs.LG > about < significant public health concern affecting nearly half >
+      36.  2205.1168: find papers written by < SunnyS.Lou > on < cs.LG > about < scale clinician activity logs and based prediction model and electronic health record and unlabeled clinician activities and end deep learning framework >
+      37.  2205.1168: find papers on < cs.LG > about < evolving burnout risk and 15 million clinician activity logs collected and unlabeled activity logs and hierarchical burnout prediction based >
+      38.  2205.1168: find papers written by < ChenyangLu > from year 2022 about < end deep learning framework > published at < KDD 2022 >
+      39.  2205.1168: find papers on < cs.LG > about < clinician activity logs and 15 million clinician activity logs collected > published at < KDD 2022 >
+      40.  2205.1168: find papers from year 2022 on < cs.LG > about < large academic medical center demonstrates and unlabeled clinician activities > published at < KDD 2022 >
+      41.  1702.0745: find papers written by < DavidBalduzzi > from year 2018 about < typing generalizes certain key features and guarantee safe interactions and classical multilinear games based and artificial agents proliferate > published at < PMLR volume 70, 2017 >
+      42.  1702.0745: find papers from year 2018 about < nash equilibrium and new perspective and guarantee safe interactions >
+      43.  1702.0745: find papers written by < DavidBalduzzi > about < artificial agents proliferate >
+      44.  1702.0745: find papers written by < DavidBalduzzi > from year 2018 on < cs.AI > about < nash equilibrium >
+      45.  1702.0745: find papers written by < DavidBalduzzi > about < thereby providing sufficient conditions and agents update >
+      46.  1702.0745: find papers about < typing generalizes certain key features >
+      47.  1702.0745: find papers written by < DavidBalduzzi > from year 2018 on < cs.LG > about < tensor decomposition > published at < PMLR volume 70, 2017 >
+      48.  1702.0745: find papers written by < DavidBalduzzi > on < cs.LG > about < classical multilinear games based > published at < PMLR volume 70, 2017 >
+      49.  1702.0745: find papers from year 2018 on < cs.GT > about < typing generalizes certain key features and safe games >
+      50.  1702.0745: find papers on < cs.GT > about < becoming increasingly important and thereby providing sufficient conditions and typing generalizes certain key features and gradient descent > published at < PMLR volume 70, 2017 >
+      51. 2203.09574: find papers written by < ZexiangDeng > from year 2022 about < two ferroelectric and using density functional theory and dimensional optical devices and scattered light parallel and monolayer may guide rational design > published at < Physical Chemistry Chemical Physics, 2022 >
+      52. 2203.09574: find papers about < using density functional theory > published at < Physical Chemistry Chemical Physics, 2022 >
+      53. 2203.09574: find papers about < monolayer may guide rational design > published at < Physical Chemistry Chemical Physics, 2022 >
+      54. 2203.09574: find papers written by < ZexiangDeng > from year 2022 on < cond-mat.mtrl-sci > about < dimensional optical devices and dependent raman intensities and scattered light parallel > published at < Physical Chemistry Chemical Physics, 2022 >
+      55. 2203.09574: find papers on < physics.chem-ph > about < using density functional theory and monolayer may guide rational design >
+      56. 2203.09574: find papers written by < ZexiangDeng > from year 2022 on < cond-mat.mtrl-sci > about < dependent raman intensities and dimensional optical devices and scattered light parallel > published at < Physical Chemistry Chemical Physics, 2022 >
+      57. 2203.09574: find papers from year 2022 about < raman spectra and dependent raman intensities and dimensional optical devices and monolayer may guide rational design >
+      58. 2203.09574: find papers written by < ZexiangDeng > about < dimensional ga and two ferroelectric and using density functional theory and monolayer may guide rational design > published at < Physical Chemistry Chemical Physics, 2022 >
+      59. 2203.09574: find papers written by < ZexiangDeng > from year 2022 on < physics.chem-ph > about < scattered light parallel and monolayer may guide rational design >
+      60. 2203.09574: find papers written by < ZexiangDeng > on < cond-mat.mtrl-sci > about < scattered light parallel and using density functional theory and monolayer may guide rational design > published at < Physical Chemistry Chemical Physics, 2022 >
+      61.  1102.4038: find papers written by < JagadishKumarandG.Ananthakrishna > from year 2015 on < cond-mat.mtrl-sci > about < acoustic emission bursts correlated >
+      62.  1102.4038: find papers written by < JagadishKumarandG.Ananthakrishna > about < collective dislocation dynamics and widely separated time scales and type c serrations and form nearly continuous acoustic signals > published at < Physical Review Letters, 2011 >
+      63.  1102.4038: find papers from year 2015 about < acoustic emission bursts correlated and stress drops and ananthakrishna model >
+      64.  1102.4038: find papers written by < JagadishKumarandG.Ananthakrishna > from year 2015 on < cond-mat.mtrl-sci > about < well separated and acoustic emission commonly observed > published at < Physical Review Letters, 2011 >
+      65.  1102.4038: find papers written by < JagadishKumarandG.Ananthakrishna > from year 2015 on < nlin.CD > about < long standing problem and form nearly continuous acoustic signals >
+      66.  1102.4038: find papers written by < JagadishKumarandG.Ananthakrishna > on < cond-mat.mtrl-sci > about < acoustic emission bursts correlated and form nearly continuous acoustic signals and generic features and le chatelier effect > published at < Physical Review Letters, 2011 >
+      67.  1102.4038: find papers written by < JagadishKumarandG.Ananthakrishna > from year 2015 about < well separated and widely separated time scales and results show and form nearly continuous acoustic signals and overriding bursts >
+      68.  1102.4038: find papers written by < JagadishKumarandG.Ananthakrishna > on < nlin.CD > about < acoustic emission bursts correlated and form nearly continuous acoustic signals > published at < Physical Review Letters, 2011 >
+      69.  1102.4038: find papers written by < JagadishKumarandG.Ananthakrishna > about < acoustic emission observed and widely separated time scales > published at < Physical Review Letters, 2011 >
+      70.  1102.4038: find papers on < nlin.CD > about < acoustic emission bursts correlated and form nearly continuous acoustic signals > published at < Physical Review Letters, 2011 >
+      71.  1112.2566: find papers from year 2015 on < cond-mat.quant-gas > about < condensates may swap and dynamic quantum interpenetration and component quantum fluid systems and trap due >
+      72.  1112.2566: find papers written by < M.Marklund and andV.Bychkov > from year 2015 about < external magnetic force and condensates may swap and taylor instability and component quantum fluid systems > published at < Phys. Rev. A 85, 013630 (2012) >
+      73.  1112.2566: find papers from year 2015 about < component quantum fluid systems and dimensional harmonic trap and dimensional geometry and nonlinear matter waves and taylor instability > published at < Phys. Rev. A 85, 013630 (2012) >
+      74.  1112.2566: find papers on < cond-mat.quant-gas > about < magnetic force and taylor instability and trap due >
+      75.  1112.2566: find papers from year 2015 about < nonlinear matter waves >
+      76.  1112.2566: find papers written by < M.Marklund and A.Bezett and D.Kobyakov > from year 2015 about < magnetic force and nonlinear matter waves and turbulent excitations and dimensional harmonic trap >
+      77.  1112.2566: find papers written by < andV.Bychkov and E.Lundh and D.Kobyakov > about < condensates may swap and magnetic force and component bose > published at < Phys. Rev. A 85, 013630 (2012) >
+      78.  1112.2566: find papers written by < andV.Bychkov > on < cond-mat.quant-gas > about < solved numerically and nonlinear matter waves > published at < Phys. Rev. A 85, 013630 (2012) >
+      79.  1112.2566: find papers from year 2015 about < dimensional geometry and taylor instability >
+      80.  1112.2566: find papers written by < A.Bezett and M.Marklund and D.Kobyakov > on < cond-mat.quant-gas > about < condensates may swap and component bose and component quantum fluid systems >
+      81. 1701.04925: find papers written by < SarehShirazi and BenUpcroftandMichaelMilford and FahimehRezazadegan > from year 2017 about < improve workplace safety and recognize human actions regardless and firstly generates generic action region proposals > published at < Robotics and Automation (ICRA), 2017 IEEE International Conference on >
+      82. 1701.04925: find papers on < cs.CV > about < abnormal behavior detection scenario and action recognition method > published at < Robotics and Automation (ICRA), 2017 IEEE International Conference on >
+      83. 1701.04925: find papers written by < FahimehRezazadegan and BenUpcroftandMichaelMilford and SarehShirazi > from year 2017 about < firstly generates generic action region proposals >
+      84. 1701.04925: find papers written by < SarehShirazi > on < cs.RO > about < recognize human actions regardless and actively proposing action regions > published at < Robotics and Automation (ICRA), 2017 IEEE International Conference on >
+      85. 1701.04925: find papers on < cs.CV > about < real world environments and locate one human action and action recognition method and uses action proposals and firstly generates generic action region proposals >
+      86. 1701.04925: find papers written by < FahimehRezazadegan and BenUpcroftandMichaelMilford > about < firstly generates generic action region proposals and abnormal behavior detection scenario >
+      87. 1701.04925: find papers written by < FahimehRezazadegan > about < locate one human action >
+      88. 1701.04925: find papers written by < SarehShirazi and FahimehRezazadegan and BenUpcroftandMichaelMilford > from year 2017 about < unconstrained videos regardless >
+      89. 1701.04925: find papers written by < SarehShirazi and FahimehRezazadegan > from year 2017 about < camera motion effects and improve workplace safety and typical computer vision datasets and firstly generates generic action region proposals >
+      90. 1701.04925: find papers written by < FahimehRezazadegan and SarehShirazi > on < cs.CV > about < firstly generates generic action region proposals and abnormal behavior detection scenario and one emphasizes and recognize human actions regardless > published at < Robotics and Automation (ICRA), 2017 IEEE International Conference on >
+      91. 2105.05405: find papers about < limited source record accessibility and reduced activity > published at < The Astrophysical Journal, 2021 >
+      92. 2105.05405: find papers from year 2021 on < physics.space-ph > about < limited source record accessibility and limited sunspot positions >
+      93. 2105.05405: find papers written by < BrunoP.Besser > about < limited source record accessibility >
+      94. 2105.05405: find papers written by < BrunoP.Besser and ShinsukeImada and ShomaUneme > about < reduced activity >
+      95. 2105.05405: find papers written by < HisashiHayakawa and TomoyaIju > about < measured sunspot positions and limited source record accessibility and dalton minimum provide controversial sunspot group numbers > published at < The Astrophysical Journal, 2021 >
+      96. 2105.05405: find papers from year 2021 on < astro-ph.SR > about < feet achromatic erecting telescope and modern solar cycles and limited source record accessibility and dalton minimum provide controversial sunspot group numbers > published at < The Astrophysical Journal, 2021 >
+      97. 2105.05405: find papers on < physics.space-ph > about < modern solar cycles and dalton minimum provide controversial sunspot group numbers and limited sunspot positions > published at < The Astrophysical Journal, 2021 >
+      98. 2105.05405: find papers about < modern solar cycles and limited source record accessibility and dalton minimum provide controversial sunspot group numbers and analysed stephan prantner >
+      99. 2105.05405: find papers from year 2021 on < astro-ph.SR > about < feet achromatic erecting telescope and limited source record accessibility and measured sunspot positions > published at < The Astrophysical Journal, 2021 >
+     100. 2105.05405: find papers from year 2021 about < limited source record accessibility > published at < The Astrophysical Journal, 2021 >
