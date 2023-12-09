@@ -20,7 +20,7 @@ save_folder_root = "../data/results/"
 testing_dic = "zy_testing/"
 
 gk_ratios = [0.1, 0.3, 0.5, 0.7]
-k_gk_dict = {5: [2], 10: [3, 5, 7], 
+k_gk_dict = {5: [3], 10: [3, 5, 7], 
              50: [int(r*50) for r in gk_ratios], 
              100: [int(r*100) for r in gk_ratios], 
              500: [int(r*500) for r in gk_ratios], 
@@ -51,10 +51,17 @@ if __name__ == "__main__":
                             " -t " + title_db_name + " -k " + str(k) + " --graph-k " + str(gk) + \
                             " -w " + workload_folder + " -s " + save_folder + " -ss "
             
-            compute_metrics_cmd = "python compute_metrics.py -pd " + title_db_name + \
+            # L2 norm
+            # compute_metrics_cmd = "python compute_metrics.py -pd " + title_db_name + \
+            #                       " -gt " + abstract_db_name + " -hd hybrid -whd weighted_hybrid -f " + \
+            #                       save_folder + " -a " + abstract_db_name + " -m \"all\" -s " + save_folder + "/stats.res" + \
+            #                       " --proc 4 "
+
+            # cosine similarity
+            compute_metrics_cmd = "python compute_metrics_cos.py -pd " + title_db_name + \
                                   " -gt " + abstract_db_name + " -hd hybrid -whd weighted_hybrid -f " + \
-                                  save_folder + " -a " + abstract_db_name + " -m \"all\" -s " + save_folder + "/stats.res" + \
-                                  " --proc 4 "
+                                  save_folder + " -a " + abstract_db_name + " -m \"all\" -s " + save_folder + "/stats_cos.res" + \
+                                  " --proc 1 "
 
             inference_cmds.append(inference_cmd)
             compute_metrics_cmds.append(compute_metrics_cmd)
@@ -64,18 +71,33 @@ if __name__ == "__main__":
             # print(compute_metrics_cmd)
             # print()
 
-    for cmd, msg in zip(inference_cmds, echo_msg):
-        print("# Experiment " + str(exp_counter))
-        exp_counter += 1
-        # echo "k/gk"
-        print(msg)
-        print(cmd)
-        print()
+    # uncomment to print commands
+    # for cmd, msg in zip(inference_cmds, echo_msg):
+    #     print("# Experiment " + str(exp_counter))
+    #     exp_counter += 1
+    #     # echo "k/gk"
+    #     print(msg)
+    #     print(cmd)
+    #     print()
     
     print("#", "="*100)
     # eval sometimes hang, so we run them separately
-    exp_counter = 1
-    for cmd, msg in zip(compute_metrics_cmds, echo_msg):
+    # exp_counter = 1
+    # for cmd, msg in zip(compute_metrics_cmds, echo_msg):
+    #     print("# Evaluation " + str(exp_counter))
+
+    #     # print eval #
+    #     print("echo \"eval " + str(exp_counter) + "\"")
+
+    #     # echo "k/gk"
+    #     print(msg)
+    #     print(cmd)
+    #     print()
+    #     exp_counter += 1
+        
+    # print in a reverse order
+    exp_counter = len(compute_metrics_cmds)
+    for cmd, msg in zip(reversed(compute_metrics_cmds), reversed(echo_msg)):
         print("# Evaluation " + str(exp_counter))
 
         # print eval #
@@ -85,5 +107,4 @@ if __name__ == "__main__":
         print(msg)
         print(cmd)
         print()
-        exp_counter += 1
-        
+        exp_counter -= 1
