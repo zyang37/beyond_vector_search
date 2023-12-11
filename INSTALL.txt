@@ -1,1 +1,8 @@
-xxx
+# Dataset
+We used a subset of the ArXiv dataset from Kaggle which contains 12,926 samples, and the the pickle file is provided at "beyond_vector_search/data/filtered_data.pickle". 
+
+# Installation
+We used Python==3.9.18, and we recommend using a virtual environment to install the required packages. 
+```
+pip install -r requirements.txt
+```
