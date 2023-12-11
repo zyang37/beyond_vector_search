@@ -68,37 +68,37 @@ echo "k=500, gk=50"
 python compute_metrics_cos.py -pd arxiv_vector -gt abs_arxiv_vector -hd hybrid -whd weighted_hybrid -f ../data/results/k500_gk50_outputs -a abs_arxiv_vector -m "all" -s ../data/results/k500_gk50_outputs/stats_cos.res --proc 1 
 
 # Evaluation 14
-echo "eval 14"
-echo "k=500, gk=150"
-python compute_metrics_cos.py -pd arxiv_vector -gt abs_arxiv_vector -hd hybrid -whd weighted_hybrid -f ../data/results/k500_gk150_outputs -a abs_arxiv_vector -m "all" -s ../data/results/k500_gk150_outputs/stats_cos.res --proc 1 
+# echo "eval 14"
+# echo "k=500, gk=150"
+# python compute_metrics_cos.py -pd arxiv_vector -gt abs_arxiv_vector -hd hybrid -whd weighted_hybrid -f ../data/results/k500_gk150_outputs -a abs_arxiv_vector -m "all" -s ../data/results/k500_gk150_outputs/stats_cos.res --proc 1 
 
-# Evaluation 15
-echo "eval 15"
-echo "k=500, gk=250"
-python compute_metrics_cos.py -pd arxiv_vector -gt abs_arxiv_vector -hd hybrid -whd weighted_hybrid -f ../data/results/k500_gk250_outputs -a abs_arxiv_vector -m "all" -s ../data/results/k500_gk250_outputs/stats_cos.res --proc 1 
+# # Evaluation 15
+# echo "eval 15"
+# echo "k=500, gk=250"
+# python compute_metrics_cos.py -pd arxiv_vector -gt abs_arxiv_vector -hd hybrid -whd weighted_hybrid -f ../data/results/k500_gk250_outputs -a abs_arxiv_vector -m "all" -s ../data/results/k500_gk250_outputs/stats_cos.res --proc 1 
 
-# Evaluation 16
-echo "eval 16"
-echo "k=500, gk=350"
-python compute_metrics_cos.py -pd arxiv_vector -gt abs_arxiv_vector -hd hybrid -whd weighted_hybrid -f ../data/results/k500_gk350_outputs -a abs_arxiv_vector -m "all" -s ../data/results/k500_gk350_outputs/stats_cos.res --proc 1 
+# # Evaluation 16
+# echo "eval 16"
+# echo "k=500, gk=350"
+# python compute_metrics_cos.py -pd arxiv_vector -gt abs_arxiv_vector -hd hybrid -whd weighted_hybrid -f ../data/results/k500_gk350_outputs -a abs_arxiv_vector -m "all" -s ../data/results/k500_gk350_outputs/stats_cos.res --proc 1 
 
-# Evaluation 17
-echo "eval 17"
-echo "k=1000, gk=100"
-python compute_metrics_cos.py -pd arxiv_vector -gt abs_arxiv_vector -hd hybrid -whd weighted_hybrid -f ../data/results/k1000_gk100_outputs -a abs_arxiv_vector -m "all" -s ../data/results/k1000_gk100_outputs/stats_cos.res --proc 1 
+# # Evaluation 17
+# echo "eval 17"
+# echo "k=1000, gk=100"
+# python compute_metrics_cos.py -pd arxiv_vector -gt abs_arxiv_vector -hd hybrid -whd weighted_hybrid -f ../data/results/k1000_gk100_outputs -a abs_arxiv_vector -m "all" -s ../data/results/k1000_gk100_outputs/stats_cos.res --proc 1 
 
-# Evaluation 18
-echo "eval 18"
-echo "k=1000, gk=300"
-python compute_metrics_cos.py -pd arxiv_vector -gt abs_arxiv_vector -hd hybrid -whd weighted_hybrid -f ../data/results/k1000_gk300_outputs -a abs_arxiv_vector -m "all" -s ../data/results/k1000_gk300_outputs/stats_cos.res --proc 1 
+# # Evaluation 18
+# echo "eval 18"
+# echo "k=1000, gk=300"
+# python compute_metrics_cos.py -pd arxiv_vector -gt abs_arxiv_vector -hd hybrid -whd weighted_hybrid -f ../data/results/k1000_gk300_outputs -a abs_arxiv_vector -m "all" -s ../data/results/k1000_gk300_outputs/stats_cos.res --proc 1 
 
-# Evaluation 19
-echo "eval 19"
-echo "k=1000, gk=500"
-python compute_metrics_cos.py -pd arxiv_vector -gt abs_arxiv_vector -hd hybrid -whd weighted_hybrid -f ../data/results/k1000_gk500_outputs -a abs_arxiv_vector -m "all" -s ../data/results/k1000_gk500_outputs/stats_cos.res --proc 1 
+# # Evaluation 19
+# echo "eval 19"
+# echo "k=1000, gk=500"
+# python compute_metrics_cos.py -pd arxiv_vector -gt abs_arxiv_vector -hd hybrid -whd weighted_hybrid -f ../data/results/k1000_gk500_outputs -a abs_arxiv_vector -m "all" -s ../data/results/k1000_gk500_outputs/stats_cos.res --proc 1 
 
-# Evaluation 20
-echo "eval 20"
-echo "k=1000, gk=700"
-python compute_metrics_cos.py -pd arxiv_vector -gt abs_arxiv_vector -hd hybrid -whd weighted_hybrid -f ../data/results/k1000_gk700_outputs -a abs_arxiv_vector -m "all" -s ../data/results/k1000_gk700_outputs/stats_cos.res --proc 1 
+# # Evaluation 20
+# echo "eval 20"
+# echo "k=1000, gk=700"
+# python compute_metrics_cos.py -pd arxiv_vector -gt abs_arxiv_vector -hd hybrid -whd weighted_hybrid -f ../data/results/k1000_gk700_outputs -a abs_arxiv_vector -m "all" -s ../data/results/k1000_gk700_outputs/stats_cos.res --proc 1 
 
