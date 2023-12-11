@@ -83,8 +83,9 @@ def batch_compute_distance_metrics(gt_list, pred_list, abstract_collection):
         if mean_dist is not None:
             dists.append(mean_dist)
         else:
-            print("too many mismatch, add cuur mean to the list")
-            dists.append(np.mean(dists))
+            if len(gt) != len(pred): 
+                print("too many mismatch, add cuur mean to the list")
+                dists.append(np.mean(dists))
     
     return dists
     # return [
