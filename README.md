@@ -1,4 +1,4 @@
-# Beyond Vector Search
+# Beyond Vector Search (in progress)
 Hybrid Vector/Knowledge Graph Query Engine for Enhanced Data Retrieval
 
 ![image](./notebooks/plotCosSim/zoom/k1000gk500.png "Hybrid Vector/Knowledge Graph Query Engine for Enhanced Data Retrieval")
