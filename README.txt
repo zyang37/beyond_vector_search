@@ -2,14 +2,18 @@ Your README.txt should contain two sections. In the first section, you should ex
 
 # Usage
 
-## Command Line Arguments
+cd beyond_vector_search
+source venv/bin/Activate
+./run.sh
 
-```
-xxx
-```
 
 ## Input Data
-Under "data/workloads", it contains the following files:
+
+We have the data stored for the evaluation and the data generated in the example run of our script.
+
+The example data can be found under "data/example".
+
+The actual data used for gathering metrics can be found in "data/workloads", it contains the following files:
 ```
 cv0_05_num20_prob0_1.csv  cv0_1_num10_prob0_1.csv  cv0_3_num5_prob0_1.csv  cv0_5_num3_prob0_1.csv  cv0_7_num2_prob0_1.csv
 cv0_05_num20_prob0_3.csv  cv0_1_num10_prob0_3.csv  cv0_3_num5_prob0_3.csv  cv0_5_num3_prob0_3.csv  cv0_7_num2_prob0_3.csv
@@ -23,7 +27,6 @@ cd workloads
 ./workload_gen.sh
 ```
 
-
 # Source Code
 
 make_vectordb.py: a script to build a vector database from a "data/filtered_data.pickle"
@@ -36,8 +39,11 @@ vector_graph/
     - bipartite_graph_networkx.py: An experimental implementation of the bipartite graph using networkx
     - embedding_models.py: A custom implementation of the embedding models for generating the text embeddings
 workloads
-    - inference.py
     - keyword_extractor.py
     - query_gen.py: A script for generating the text queries given paper data points
     - workload_gen.sh: This is the script for generating the workloads we described in the report
-    - run.sh: xxx
+testing
+    - inference.py: A script for executing our various search query engines on the generated workloads
+zy_testing
+    - compute_metrics_cos.py: A script for computing the accuracy of our results utilizing various performance metrics
+
