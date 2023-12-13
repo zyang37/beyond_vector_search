@@ -1,7 +1,12 @@
-# Beyond Vector Search (in progress)
-Hybrid Vector/Knowledge Graph Query Engine for Enhanced Data Retrieval
+<h2 align="center">
+    Beyond Vector Search
+    <br>
+    Hybrid Vector/Knowledge Graph Query Engine for Enhanced Data Retrieval
+</h2>
 
-![image](./notebooks/plotCosSim/zoom/k1000gk500.png "Hybrid Vector/Knowledge Graph Query Engine for Enhanced Data Retrieval")
+<p align="center">
+  <img src="./notebooks/plotCosSim/zoom/k1000gk500.png" alt="Hybrid Vector/Knowledge Graph Query Engine for Enhanced Data Retrieval">
+<!-- ![image](./notebooks/plotCosSim/zoom/k1000gk500.png "Hybrid Vector/Knowledge Graph Query Engine for Enhanced Data Retrieval") -->
 
 ## Code and Documentation
 Place your entire source code in a single ZIP file (no binaries please). Your top directory should include two files: INSTALL.txt and README.txt, as described next.
