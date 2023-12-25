@@ -186,8 +186,9 @@ def weighted_hybrid_search_cut_off(
     graph_search_results = []
 
     for single_query_results in vector_search_results:
+        # print(single_query_results)
         graph_search_results.append(
-            graph.find_relevant_weighted_ranked(single_query_results, graph_k, cut_off)
+            graph.find_relevant_weighted_ranked(single_query_results[:k-graph_k], graph_k, cut_off)
         )
 
     return [
@@ -220,7 +221,7 @@ def infer(
     df = pd.read_csv(workload_csv)
     if should_sample:
         # df = df.iloc[:150]
-        df = df.sample(1000)
+        df = df.sample(100)
     chroma_client = chromadb.PersistentClient(path=chroma_path)
 
     # time the inference
