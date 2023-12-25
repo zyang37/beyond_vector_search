@@ -3,7 +3,7 @@ pandas==1.5.3
 torch==2.1.0
 scikit-learn==1.3.2
 sentencepiece==0.1.99
-transformers==4.35.0
+transformers==4.36.0
 chromadb==0.4.16
 nltk==3.8.1
 rake-nltk==1.0.6
