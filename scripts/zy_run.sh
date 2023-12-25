@@ -10,7 +10,7 @@
 
 # new 
 cd zy_testing
-python inference.py -a abs_arxiv_vector -t arxiv_vector -k 5 -l -1 -w ../data/workloads -s ../data/workloads/inference_results
-python compute_metrics.py -pd arxiv_vector -gt abs_arxiv_vector -hd hybrid -whd weighted_hybrid \
-                          -f ../data/workloads/inference_results -a abs_arxiv_vector -m "all" \
-                          -s ../data/workloads/inference_results_stats.csv
+# python inference.py -a abs_arxiv_vector -t arxiv_vector -k 500 --graph-k 250 -w ../data/workloads/ -s ../tmp/k500_gk250_outputs -ss 
+python compute_metrics_cos.py -pd arxiv_vector -gt abs_arxiv_vector -hd hybrid -whd weighted_hybrid \
+                          -f ../tmp/k500_gk250_outputs -a abs_arxiv_vector -m "distances" \
+                          -s ../tmp/k500_gk250_outputs/stats.res
