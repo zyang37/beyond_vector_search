@@ -16,3 +16,4 @@ logs/*
 *.pickle
 */data/*
 *csv*
+tmp/*
