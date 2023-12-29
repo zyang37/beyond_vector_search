@@ -60,7 +60,7 @@ if __name__ == "__main__":
         print()
         exit()
 
-    # Load the arxiv dataset
+    # Load the dataset
     file = open(args.dataset, "rb")
     data = pickle.load(file)
     file.close()
@@ -82,7 +82,12 @@ if __name__ == "__main__":
         data = data[['Url', 'Headline', 'Author', 'Date published', 'Category', 
                 'Section', 'Description', 'Keywords', 'Article text']]
     elif args.type == "wiki":
-        raise NotImplementedError
+        # for c in data.columns:
+        #     print(c)
+        # exit()
+        ids = list(data["Title"].astype("str").values)
+        data.drop_duplicates(subset='title', inplace=True)
+        data = data[["Title", "Origin", "Director", "Cast", "Genre", "Year", "Plot Summary", "Plot", "Wiki Page"]]
     else:
         raise ValueError("Invalid type: {}".format(args.type))
 
