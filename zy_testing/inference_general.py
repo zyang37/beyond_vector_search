@@ -18,6 +18,7 @@ from pprint import pprint
 import time
 import random
 import numpy as np
+import json
 
 sys.path.append("../")
 from utils.build_graph import build_graph
@@ -222,6 +223,7 @@ def infer(
     id2gt_dict,
     k,
     graph_k,
+    keyword_weights,
     should_sample=False,
 ):
     df = pd.read_csv(workload_csv)
@@ -259,12 +261,6 @@ def infer(
     global HYBRID_TIME
     HYBRID_TIME = end - start
 
-    keyword_to_edge_weights = {
-        "author": 4,
-        "category": 4,
-        "journal": 2,
-        "year": 1,
-    }
     hop_penalty = 1
 
     # time the inference
@@ -278,7 +274,7 @@ def infer(
         graph_k,
         get_query_col,
         id2gt_dict,
-        keyword_to_edge_weights,
+        keyword_weights,
         hop_penalty,
         cut_off=args.cut_off,
     )
@@ -306,7 +302,8 @@ def infer(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "-t", "--type"
+        "-t",
+        "--type",
         type=str,
         default="axriv",
         help="type of dataset to run inference on (arxiv, cnn, wiki)",
@@ -393,6 +390,13 @@ if __name__ == "__main__":
         action="store_true",
         help="should sample (will only infer first 20 from each input file)",
     )
+    parser.add_argument(
+        "-kw",
+        "--keyword_weights",
+        default="../data/wiki_movies/keyword_weights.json",
+        type=str,
+        help="json file that stores the weights of the keywords",
+    )
 
     args = parser.parse_args()
     pprint(vars(args))
@@ -402,11 +406,20 @@ if __name__ == "__main__":
         filtered_data = pickle.load(f)
     id2gt_dict = create_id_to_gt_dict(filtered_data, args.id, args.ground_truths)
 
-    # adjust the root folder of the graph path, so user can just specify the filter data path, 
+    with open(args.keyword_weights, "rb") as f:
+        keyword_weights = json.load(f)
+
+    # adjust the root folder of the graph path, so user can just specify the filter data path,
     # and the graph path will be automatically adjusted, if it is not specified
     if args.graph.split("/")[:-1] != args.filtered_data_path.split("/")[:-1]:
-        print("Adjusting graph path to match filtered_data_path: {}".format(args.filtered_data_path.split("/")[:-1]))
-        args.graph = os.path.join(args.filtered_data_path.split("/")[:-1], args.graph.split("/")[-1])
+        print(
+            "Adjusting graph path to match filtered_data_path: {}".format(
+                args.filtered_data_path.split("/")[:-1]
+            )
+        )
+        args.graph = os.path.join(
+            "/".join(args.filtered_data_path.split("/")[:-1]), args.graph.split("/")[-1]
+        )
         print("New graph path: {}".format(args.graph))
 
     if not os.path.exists(args.graph):
@@ -415,10 +428,10 @@ if __name__ == "__main__":
             graph = build_graph(filtered_data)
         elif args.type == "cnn":
             cnn_news_parser = CnnNewsParser(filtered_data)
-            graph = build_graph(cnn_news_parser)
+            graph = cnn_news_parser.G
         elif args.type == "wiki":
             wiki_movies_parser = WikiMoviesParser(filtered_data)
-            graph = build_graph(wiki_movies_parser)
+            graph = wiki_movies_parser.G
         else:
             raise ValueError(f"Unknown type {args.type}")
 
@@ -449,6 +462,7 @@ if __name__ == "__main__":
                 id2gt_dict,
                 args.k,
                 graph_k,
+                keyword_weights,
                 args.should_sample,
             )
 
