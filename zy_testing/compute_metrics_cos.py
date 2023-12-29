@@ -192,15 +192,15 @@ def append_results(results_df, accuracy_lists, cols_to_eval, metric_name):
         results_df.loc[
             row_loc, get_col_name(metric_name, query_name, "mean")
         ] = accuracy.mean()
-        results_df.loc[
-            row_loc, get_col_name(metric_name, query_name, "std")
-        ] = accuracy.std()
-        results_df.loc[
-            row_loc, get_col_name(metric_name, query_name, "max")
-        ] = accuracy.max()
-        results_df.loc[
-            row_loc, get_col_name(metric_name, query_name, "min")
-        ] = accuracy.min()
+        # results_df.loc[
+        #     row_loc, get_col_name(metric_name, query_name, "std")
+        # ] = accuracy.std()
+        # results_df.loc[
+        #     row_loc, get_col_name(metric_name, query_name, "max")
+        # ] = accuracy.max()
+        # results_df.loc[
+        #     row_loc, get_col_name(metric_name, query_name, "min")
+        # ] = accuracy.min()
 
         cur_col += 1
 
@@ -395,9 +395,9 @@ if __name__ == "__main__":
             for metric in metrics_to_eval:
                 for col in cols_to_eval[1:]:
                     columns.append(get_col_name(metric, col, "mean"))
-                    columns.append(get_col_name(metric, col, "std"))
-                    columns.append(get_col_name(metric, col, "max"))
-                    columns.append(get_col_name(metric, col, "min"))
+                    # columns.append(get_col_name(metric, col, "std"))
+                    # columns.append(get_col_name(metric, col, "max"))
+                    # columns.append(get_col_name(metric, col, "min"))
             results_df = pd.DataFrame(columns=columns)
         row = [f.name]
         for i in range(results_df.shape[1] - 1):
