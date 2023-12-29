@@ -31,7 +31,7 @@ class Wiki_MovieQueryTemplate:
                 "Cast": 0.5,
                 "Genre": 0.5,
                 "Year": 0.5,
-                "Plot Summary": 1,
+                "Plot": 1,
             }
 
         self.query_funcs = {
@@ -40,11 +40,9 @@ class Wiki_MovieQueryTemplate:
             "Cast": self.cast_query,
             "Genre": self.genre_query,
             "Year": self.year_query,
-            "Plot Summary": self.plot_summary_query,
+            "Plot": self.plot_query,
         }
-        self.wiki_movies_parser.parse_func_dict[
-            "Plot Summary"
-        ] = self.parse_plot_summary
+        self.wiki_movies_parser.parse_func_dict["Plot"] = self.parse_plot
 
         # initialize the infor_dict, which stores the parsed information later
         self.infor_dict = {}
@@ -62,13 +60,13 @@ class Wiki_MovieQueryTemplate:
         start_text = self.prompt
         query = start_text
         if title:
-            query += self.title_query()
+            query += self.plot_query()
         else:
             # if not random add infor to the query, use append_info()
             query += self.append_info()
             if query == start_text:
                 # if no infor added, add title
-                query += self.title_query()
+                query += self.plot_query()
         return query
 
     def append_info(self):
@@ -86,14 +84,14 @@ class Wiki_MovieQueryTemplate:
 
     def parse_info(self, info: dict):
         # set the infor_dict
-        self.title = info["Title"]
+        self.title = info["Plot Summary"]
         for key in self.infor_dict.keys():
             parsed_infor = self.wiki_movies_parser.parse_func_dict[key](info[key])
             self.infor_dict[key] = parsed_infor
 
         # keyword_scores: [(s1, k1), (s2, k2), ...]
         self.keyword_scores_dict = extract_keywords(
-            self.infor_dict["Plot Summary"], score=True
+            self.infor_dict["Plot"], score=True
         )[:20]
         # get list of score
         self.keyword_weights = [s for s, k in self.keyword_scores_dict]
@@ -112,15 +110,15 @@ class Wiki_MovieQueryTemplate:
         self.keyword_weights = self.keyword_weights[: len(self.keywords)]
         self.keyword_scores_dict = self.keyword_scores_dict[: len(self.keywords)]
 
-    def parse_plot_summary(self, plot_summary):
+    def parse_plot(self, plot):
         """
         replace new line with space
         """
         # replace multple space into one
-        abstract_str = " ".join(plot_summary.split())
+        abstract_str = " ".join(plot.split())
         return abstract_str.replace("\n", " ")
 
-    def plot_summary_query(self, max_num=5):
+    def plot_query(self, max_num=5):
         # random_keyword = random.choice(self.keywords)
         # Randomly add more keywords (max 5), return str like "k1 and k2". no repeated keywords
         num = random.randint(1, max_num)
@@ -160,13 +158,13 @@ class Wiki_MovieQueryTemplate:
         return " in the year {}".format(self.infor_dict["Year"])
 
     def print_info(self):
-        print("Title: {}".format(self.title))
+        print("Plot Summary: {}".format(self.title))
         for key in self.infor_dict.keys():
             print("{}: {}".format(key, self.infor_dict[key]))
 
 
 class WikiMoviesParser:
-    def __init__(self, df=None, id_col="Title"):
+    def __init__(self, df=None, id_col="Plot Summary"):
         self.df = df
         self.unique_ks = []
         self.exclude_authors = []
@@ -385,7 +383,7 @@ if __name__ == "__main__":
         queries_list.extend(
             query_template.generate_queries(title=title, num=num_queries_per_paper)
         )
-        paper_id_list.extend([d["Title"]] * num_queries_per_paper)
+        paper_id_list.extend([d["Plot Summary"]] * num_queries_per_paper)
 
     if save_path:
         # make pandas dataframe
