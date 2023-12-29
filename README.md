@@ -18,9 +18,9 @@ pip install -r requirements.txt
 
 ### Creating filtered data
 
-- `notebooks/parsing_json.ipynb`: filter data with more overlaps, and save as pickle file
-- `notebooks/parsing_cnn_news.ipynb`: filter data for CNN news
-- `notebooks/parsing_wiki_movies.ipynb`: filter data for wiki movies
+- `notebooks/parsing_json.ipynb`: filter data for [arxiv](https://www.kaggle.com/Cornell-University/arxiv)
+- `notebooks/parsing_cnn_news.ipynb`: filter data for [CNN news](https://www.kaggle.com/datasets/hadasu92/cnn-articles-after-basic-cleaning/data)
+- `notebooks/parsing_wiki_movies.ipynb`: filter data for [wiki movies](https://www.kaggle.com/datasets/jrobischon/wikipedia-movie-plots)
 
 # Dataset
 

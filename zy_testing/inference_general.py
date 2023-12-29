@@ -15,16 +15,16 @@ import sys
 import math
 from pathlib import Path
 from pprint import pprint
-
 import time
-
-sys.path.append("../")
-from utils.build_graph import build_graph
-
-# fix random seed for reproducibility
 import random
 import numpy as np
 
+sys.path.append("../")
+from utils.build_graph import build_graph
+from utils.cnn_news import CnnNewsParser
+from utils.wiki_movie import WikiMoviesParser
+
+# fix random seed for reproducibility
 random.seed(1)
 np.random.seed(1)
 
@@ -306,6 +306,12 @@ def infer(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
+        "-t", "--type"
+        type=str,
+        default="axriv",
+        help="type of dataset to run inference on (arxiv, cnn, wiki)",
+    )
+    parser.add_argument(
         "-k",
         type=int,
         default=10,
@@ -363,8 +369,9 @@ if __name__ == "__main__":
         "-g",
         "--graph",
         type=str,
+        # required=True,
         default="../data/graph.pickle",
-        help="path to graph pickle file",
+        help="path to graph.pickle",
     )
     parser.add_argument(
         "-l",
@@ -395,9 +402,26 @@ if __name__ == "__main__":
         filtered_data = pickle.load(f)
     id2gt_dict = create_id_to_gt_dict(filtered_data, args.id, args.ground_truths)
 
+    # adjust the root folder of the graph path, so user can just specify the filter data path, 
+    # and the graph path will be automatically adjusted, if it is not specified
+    if args.graph.split("/")[:-1] != args.filtered_data_path.split("/")[:-1]:
+        print("Adjusting graph path to match filtered_data_path: {}".format(args.filtered_data_path.split("/")[:-1]))
+        args.graph = os.path.join(args.filtered_data_path.split("/")[:-1], args.graph.split("/")[-1])
+        print("New graph path: {}".format(args.graph))
+
     if not os.path.exists(args.graph):
         print("Building graph...")
-        graph = build_graph(filtered_data)
+        if args.type == "arxiv":
+            graph = build_graph(filtered_data)
+        elif args.type == "cnn":
+            cnn_news_parser = CnnNewsParser(filtered_data)
+            graph = build_graph(cnn_news_parser)
+        elif args.type == "wiki":
+            wiki_movies_parser = WikiMoviesParser(filtered_data)
+            graph = build_graph(wiki_movies_parser)
+        else:
+            raise ValueError(f"Unknown type {args.type}")
+
         with open(args.graph, "wb") as f:
             pickle.dump(graph, f)
 
