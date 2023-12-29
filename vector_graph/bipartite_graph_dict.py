@@ -301,6 +301,7 @@ class BipartiteGraphDict:
         )
         filtered_ids = []
         for x in sorted_ids:
+            print(x[1])
             if x[0] not in input_ids_list and x[1] <= cut_off:
                 filtered_ids.append(x[0])
 

@@ -99,7 +99,12 @@ def vector_search(
     # print(df.shape[0], batch_size)
     for idx in tqdm(range(0, df.shape[0], batch_size)):
         queries = query_col.iloc[idx : idx + batch_size].values.tolist()
+        # try:
         results = collection.query(query_texts=queries, n_results=k)
+        # except:
+        #     for q in queries:
+        #         if type(q) != str: print(q)
+        #     exit()
         search_results.extend(results["ids"])
     return search_results
 
@@ -338,21 +343,21 @@ if __name__ == "__main__":
         "-gt",
         "--ground_truths",
         type=str,
-        default="cnn_newsGT",
+        default="cnn_news_smallGT",
         help="ChromaDB collection name that stores the embeddings of the ground truths",
     )
     parser.add_argument(
         "-emb_col",
         "--embed",
         type=str,
-        default="cnn_news",
+        default="cnn_news_small",
         help="ChromaDB collection name that stores the embeddings of the testing dataset",
     )
     parser.add_argument(
         "-f",
         "--filtered-data-path",
         type=str,
-        default="../data/cnn_news/filtered_dataCNN.pickle",
+        default="../data/cnn_news/filtered_dataCNN_len.pickle",
         help="path to filtered_data pickle file",
     )
     parser.add_argument(
@@ -373,7 +378,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-co",
         "--cut-off",
-        default=-3,
+        default=-20,
         type=int,
         help="Priority cutoff, weighted ranked result will only include data whose priority is lower (better) than cutoff",
     )
