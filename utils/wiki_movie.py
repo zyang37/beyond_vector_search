@@ -312,7 +312,7 @@ if __name__ == "__main__":
         "-d",
         "--data",
         type=str,
-        default="../data/wiki_movies/filtered_data.pickle",
+        default="../data/wiki_movies/filtered_data_wiki_movies.pickle",
         help="path to the data file",
     )
     parser.add_argument(
