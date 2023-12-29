@@ -113,17 +113,20 @@ class CNN_NewsQueryTemplate:
         abstract_str = ' '.join(article_text.split())
         return abstract_str.replace("\n", " ")
 
-    def article_text_query(self, max_num=5):
+    def article_text_query(self, max_num=3):
         # random_keyword = random.choice(self.keywords)
         # Randomly add more keywords (max 5), return str like "k1 and k2". no repeated keywords
         num = random.randint(1, max_num)
-        if num > len(self.keywords):
+        if num >= len(self.keywords):
             '''
             Note: some paper have very few keywords, 
             so we need to make sure the number of keywords is not larger than the number of keywords in the paper
             '''
             num = len(self.keywords)
-        keywords = random.choices(self.keywords, k=num, weights=self.keyword_weights)
+        try:
+            keywords = random.choices(self.keywords, k=num, weights=self.keyword_weights)
+        except:
+            print(self.keywords, self.infor_dict['Article text'])
         keywords = list(set(keywords))
         random_keyword_list = "{}".format(" and ".join(keywords))
         return " about < {} >".format(random_keyword_list)
@@ -144,11 +147,10 @@ class CNN_NewsQueryTemplate:
         return " written by < {} >".format(random_author_list)
 
     def date_query(self):
-        return " on date {}".format(self.infor_dict['Date published'])
+        return " published on < {} >".format(self.infor_dict['Date published'])
 
     def categories_query(self):
-        random_category = random.choice(self.infor_dict['Category'])
-        return " on < {} >".format(random_category)
+        return " on < {} >".format(self.infor_dict['Category'])
 
     def section_query(self):
         return " around the < {} >".format(self.infor_dict['Section'])
