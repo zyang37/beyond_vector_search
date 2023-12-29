@@ -86,7 +86,7 @@ if __name__ == "__main__":
         #     print(c)
         # exit()
         ids = list(data["Title"].astype("str").values)
-        data.drop_duplicates(subset='title', inplace=True)
+        data.drop_duplicates(subset='Title', inplace=True)
         data = data[["Title", "Origin", "Director", "Cast", "Genre", "Year", "Plot Summary", "Plot", "Wiki Page"]]
     else:
         raise ValueError("Invalid type: {}".format(args.type))
