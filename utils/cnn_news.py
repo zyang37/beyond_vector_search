@@ -253,7 +253,7 @@ class CnnNewsParser:
         parse_by_comma = author_str.split(", ")
         for i, a in enumerate(parse_by_comma):
             if 'by' in a:
-                a = a.split('by')[-1]
+                a = a.split(' by ')[-1]
             # parse by 'and'
             if 'and' in a:
                 al = []
