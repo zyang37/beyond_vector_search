@@ -140,7 +140,10 @@ class Wiki_MovieQueryTemplate:
         return " that are < {} >".format(self.infor_dict["Origin"])
 
     def director_query(self):
-        random_keyword = random.choice(self.infor_dict["Director"])
+        try:
+            random_keyword = random.choice(self.infor_dict["Director"])
+        except:
+            print(self.infor_dict)
         return " directed by < {} >".format(random_keyword)
 
     def cast_query(self, max_num=3):
@@ -235,8 +238,6 @@ class WikiMoviesParser:
         director_str = director_str.replace("\n", "")
         parse_by_comma = director_str.split(", ")
         for i, a in enumerate(parse_by_comma):
-            if "by" in a:
-                a = a.split("by")[-1]
             # parse by 'and'
             if "and" in a:
                 al = []
@@ -260,8 +261,6 @@ class WikiMoviesParser:
         genre_str = genre_str.replace("\n", "")
         parse_by_comma = genre_str.split(", ")
         for i, a in enumerate(parse_by_comma):
-            if "by" in a:
-                a = a.split("by")[-1]
             # parse by 'and'
             if "and" in a:
                 al = []
@@ -285,8 +284,6 @@ class WikiMoviesParser:
         cast_str = cast_str.replace("\n", "")
         parse_by_comma = cast_str.split(", ")
         for i, a in enumerate(parse_by_comma):
-            if "by" in a:
-                a = a.split("by")[-1]
             # parse by 'and'
             if "and" in a:
                 al = []
