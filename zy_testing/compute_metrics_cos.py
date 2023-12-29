@@ -329,7 +329,7 @@ if __name__ == "__main__":
         "--pred",
         type=str,
         required=True,
-        help="the name of the prediction column",
+        help="the name of the prediction column (vector search)",
     )
     parser.add_argument(
         "-p", "--proc", type=int, default=1, help="number of processes to use"

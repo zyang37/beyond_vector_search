@@ -43,7 +43,7 @@ def create_vector_database(data, args, ids):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Create a vector database")
     parser.add_argument("-d", "--dataset", metavar="", type=str, default="data/filtered_data.pickle", help="Dataset to use (pickle file))")
-    parser.add_argument("-c", "--collection", metavar="", type=str, required=True, help="Name of the collection")
+    parser.add_argument("-c", "--collection", metavar="", type=str, default=None, help="Name of the collection")
     parser.add_argument("--emb", metavar="", type=str, default="title", help="Field to vectorize (title or abstract)")
     parser.add_argument("-t", "--type", metavar="", type=str, default="v", help="Type of vector database (arxiv, cnn, wiki)")
     parser.add_argument("-s", "--save", metavar="", type=str, default="data/chroma_dbs/", help="Path to save the vector database")
