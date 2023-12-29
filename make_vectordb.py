@@ -20,11 +20,11 @@ from tqdm.auto import tqdm
 from pprint import pprint
 
 
-def create_vector_arxiv(data, args):
+def create_vector_database(data, args, ids):
     chroma_client = chromadb.PersistentClient(path=args.save)
 
+    # ids = list(data["id"].astype("str").values)
     documents = list(data[args.emb].values)
-    ids = list(data["id"].astype("str").values)
     metedata = list(data.to_dict(orient="records"))
 
     # load data into the database
@@ -43,9 +43,9 @@ def create_vector_arxiv(data, args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Create a vector database")
     parser.add_argument("-d", "--dataset", metavar="", type=str, default="data/filtered_data.pickle", help="Dataset to use (pickle file))")
-    parser.add_argument("-c", "--collection", metavar="", type=str, default="arxiv_vector", help="Name of the collection")
+    parser.add_argument("-c", "--collection", metavar="", type=str, required=True, help="Name of the collection")
     parser.add_argument("--emb", metavar="", type=str, default="title", help="Field to vectorize (title or abstract)")
-    parser.add_argument("-t", "--type", metavar="", type=str, default="v", help="Type of vector database (v or vg)")
+    parser.add_argument("-t", "--type", metavar="", type=str, default="v", help="Type of vector database (arxiv, cnn, wiki)")
     parser.add_argument("-s", "--save", metavar="", type=str, default="data/chroma_dbs/", help="Path to save the vector database")
     parser.add_argument("-l", "--list", action="store_true", help="DO Nothing and List all the vector databases")
     args = parser.parse_args()
@@ -66,19 +66,29 @@ if __name__ == "__main__":
     file.close()
 
     # data preprocessing
-    data.fillna("",inplace=True)
-    data.drop_duplicates(subset='id', inplace=True)
-    data.drop_duplicates(subset='title', inplace=True)
-
-    # for each abstract, append the title text
-    data['abstract'] = data['title'] + " " + data['abstract']
-    # print(data['abstract'].head())
-
-    data = data[['id', 'title', 'abstract', 'authors', 'journal-ref', 
-             'categories', 'comments', 'update_date']]
-
-    # Create the vector database
-    if args.type == "v":
-        create_vector_arxiv(data, args)
+    if args.type == "arxiv":
+        data.fillna("",inplace=True)
+        data.drop_duplicates(subset='id', inplace=True)
+        data.drop_duplicates(subset='title', inplace=True)
+        # for each abstract, append the title text
+        # data['abstract'] = data['title'] + " " + data['abstract']
+        # print(data['abstract'].head())
+        ids = list(data["id"].astype("str").values)
+        data = data[['id', 'title', 'abstract', 'authors', 'journal-ref', 
+                'categories', 'comments', 'update_date']]
+    elif args.type == "cnn":
+        data.drop_duplicates(subset='Url', inplace=True)
+        ids = list(data["Url"].astype("str").values)
+        data = data[['Url', 'Headline', 'Author', 'Date published', 'Category', 
+                'Section', 'Description', 'Keywords', 'Article text']]
+    elif args.type == "wiki":
+        raise NotImplementedError
     else:
         raise ValueError("Invalid type: {}".format(args.type))
+
+    # Create the vector database
+    create_vector_database(data, args, ids)
+    # if args.type == "v":
+    #     create_vector_arxiv(data, args)
+    # else:
+    #     raise ValueError("Invalid type: {}".format(args.type))
