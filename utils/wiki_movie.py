@@ -137,11 +137,11 @@ class Wiki_MovieQueryTemplate:
 
     def origin_query(self):
         # random select a keyword from the keywords list
-        random_keyword = random.choice(self.infor_dict["Origin"])
-        return " from < {} >".format(random_keyword)
+        return " that are < {} >".format(self.infor_dict["Origin"])
 
     def director_query(self):
-        return " directed by < {} >".format(self.infor_dict["Director"])
+        random_keyword = random.choice(self.infor_dict["Director"])
+        return " directed by < {} >".format(random_keyword)
 
     def cast_query(self, max_num=3):
         max_num = min(max_num, len(self.infor_dict["Cast"]))
