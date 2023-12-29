@@ -50,6 +50,8 @@ if __name__ == "__main__":
     parser.add_argument("-l", "--list", action="store_true", help="DO Nothing and List all the vector databases")
     args = parser.parse_args()
 
+    pprint(args.__dict__)
+
     if args.list:
         chroma_client = chromadb.PersistentClient(path=args.save)
         dbs = chroma_client.list_collections()
