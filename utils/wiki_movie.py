@@ -10,7 +10,7 @@ from tqdm.auto import tqdm
 
 sys.path.append("../")
 from workloads.keyword_extractor import *
-from build_graph import graph_extend_node_edge
+from utils.build_graph import graph_extend_node_edge
 from vector_graph.bipartite_graph_dict import BipartiteGraphDict
 
 # fix the random seed
@@ -182,7 +182,7 @@ class WikiMoviesParser:
             self.df[self.id_col] = self.df[self.id_col].astype("string")
             # drop duplicates
             self.df.drop_duplicates(subset=[self.id_col], inplace=True)
-            self.unique_ks = np.unique(df["Section"])
+            # self.unique_ks = np.unique(df["Section"])
             # check if all columns are in the df
             for k in self.parse_func_dict.keys():
                 assert k in self.df.columns, f"{k} is not in the df"
