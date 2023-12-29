@@ -19,6 +19,8 @@ pip install -r requirements.txt
 ### Creating filtered data
 
 - `notebooks/parsing_json.ipynb`: filter data with more overlaps, and save as pickle file
+- `notebooks/parsing_cnn_news.ipynb`: filter data for CNN news
+- `notebooks/parsing_wiki_movies.ipynb`: filter data for wiki movies
 
 # Dataset
 
