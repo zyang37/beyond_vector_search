@@ -12,8 +12,11 @@ import sys
 sys.path.append("../")
 from vector_graph.bipartite_graph_dict import BipartiteGraphDict
 
-def graph_extend_node_edge(idx, target_infor, k_id_name, keyword_nodes, document_id, edges):
-    '''
+
+def graph_extend_node_edge(
+    idx, target_infor, k_id_name, keyword_nodes, document_id, edges
+):
+    """
     This function extends the graph by adding new nodes and edges
 
     args:
@@ -23,7 +26,7 @@ def graph_extend_node_edge(idx, target_infor, k_id_name, keyword_nodes, document
         - keyword_nodes: list of keyword nodes
         - document_id: id of the document
         - edges: list of edges
-    '''
+    """
 
     if type(target_infor.iloc[0]) is list:
         target_infor_dim = 2
@@ -42,9 +45,12 @@ def graph_extend_node_edge(idx, target_infor, k_id_name, keyword_nodes, document
         raise NotImplementedError
     return keyword_nodes, edges
 
-def build_graph(df):
+
+def build_graph(df, G=None):
     # add document nodes
-    G = BipartiteGraphDict()
+
+    if not G:
+        G = BipartiteGraphDict()
     author_keywords = []
     category_keywords = []
     journal_keywords = []
@@ -60,7 +66,7 @@ def build_graph(df):
     journals = df["journal-ref"].map(parse_journal)
     years = df["update_date"].map(parse_year)
 
-    df.drop_duplicates(subset=['id'], inplace=True)
+    df.drop_duplicates(subset=["id"], inplace=True)
     df["id"] = df["id"].astype("string")
     data_ids = set(df["id"].tolist())
 
