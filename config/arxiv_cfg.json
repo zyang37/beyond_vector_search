@@ -6,6 +6,7 @@
     },
     "vectorDB": {
         "root": "data/chroma_dbs/",
+        "embedding_model": "all-MiniLM-L6-v2",
         "collection_name": "arxiv_title",
         "id_field": "id",
         "embed_field": "title",
@@ -22,6 +23,7 @@
     },
     "vectorDBGT": {
         "root": "data/chroma_dbs/",
+        "embedding_model": "all-MiniLM-L6-v2",
         "collection_name": "arxiv_abstract",
         "id_field": "id",
         "embed_field": "abstract",

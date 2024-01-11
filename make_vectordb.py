@@ -51,7 +51,8 @@ def get_embedding_model(vectordb_cfg):
     this function parses args and return the embedding model from the vectorDB cfg
     '''
     try:
-        return embedding_functions.SentenceTransformerEmbeddingFunction(model_name=vectordb_cfg['embedding_model'])
+        ef = embedding_functions.SentenceTransformerEmbeddingFunction(model_name=vectordb_cfg['embedding_model'])
+        return ef
     except:
         print("Invalid embedding model: {}".format(vectordb_cfg['embedding_model']))
         print("Using default model: all-MiniLM-L6-v2")
