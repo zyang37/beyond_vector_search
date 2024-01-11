@@ -8,7 +8,7 @@ A workload should be a dataframe, and will be write to a csv file.
 Example: python query_gen.py -pn 20 -n 2 -s 20_2_k1/test.csv
 """
 
-
+import os
 import sys
 import random
 import pickle
@@ -42,11 +42,11 @@ class QueryTemplate:
             self.infor_prob = prob_cfg
         else:
             self.infor_prob = {
-                "author": 0.3,
-                "year": 0.3,
-                "categories": 0.3,
+                "author": 0.,
+                "year": 0.5,
+                "categories": 0.,
                 "keywords": 1,
-                "journal": 0.3,
+                "journal": 0.,
             }
 
     def generate_queries(self, title=False, num=1):
@@ -177,9 +177,8 @@ def generate_many():
 
 
 if __name__ == "__main__":
-    # get a number from the command line
-
     parser = argparse.ArgumentParser(description="Generate a workload")
+    parser.add_argument("-c", "--cfg", metavar="", type=str, required=True, help="path to the config file")
     parser.add_argument(
         "-pn",
         "--paper_num",
@@ -211,6 +210,7 @@ if __name__ == "__main__":
     parser.add_argument('--prob', type=str, default=None, help='path to the probability config file (json)')
 
     args = parser.parse_args()
+    cfg = load_json(args.cfg)
 
     save_path = args.save
     # k = args.k
@@ -224,14 +224,17 @@ if __name__ == "__main__":
             infor_prob = json.load(f)
     else:
         infor_prob = {
-            "author": 0.5,
-            "year": 0.5,
-            "categories": 0.5,
-            "keywords": 0.5,
-            "journal": 0.5,
+            "author": 0.,
+            "year": 0.,
+            "categories": 0.,
+            "keywords": 1.,
+            "journal": 0.,
         }
 
-    file = open("../data/filtered_data.pickle", "rb")
+    # file = open("../data/filtered_data.pickle", "rb")
+    data_path = cfg["data"]["path"]
+    data_path = os.path.join("../", data_path)
+    file = open(data_path, "rb")
     data = pickle.load(file)
     file.close()
     data.reset_index(drop=True, inplace=True)
@@ -255,7 +258,7 @@ if __name__ == "__main__":
         queries_list.extend(
             query_template.generate_queries(title=title, num=num_queries_per_paper)
         )
-        paper_id_list.extend([d["id"]] * num_queries_per_paper)
+        paper_id_list.extend([str(d["id"])] * num_queries_per_paper)
 
     if save_path:
         # make pandas dataframe

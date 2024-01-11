@@ -1,0 +1,53 @@
+{
+    "data": {
+        "path": "data/arxiv/filtered_data.pickle",
+        "size": 20635596,
+        "modify": "2024-01-04 13:55:24"
+    },
+    "vectorDB": {
+        "root": "data/chroma_dbs/",
+        "collection_name": "arxiv_title",
+        "id_field": "id",
+        "embed_field": "title",
+        "metadata_fields": [
+            "id",
+            "title",
+            "abstract",
+            "authors",
+            "journal-ref",
+            "categories",
+            "comments",
+            "update_date"
+        ]
+    },
+    "vectorDBGT": {
+        "root": "data/chroma_dbs/",
+        "collection_name": "arxiv_abstract",
+        "id_field": "id",
+        "embed_field": "abstract",
+        "metadata_fields": [
+            "id",
+            "title",
+            "abstract",
+            "authors",
+            "journal-ref",
+            "categories",
+            "comments",
+            "update_date"
+        ],
+        "chunk": {
+            "use": false,
+            "reverse_id_field": null
+        }
+    },
+    "graphDB": {
+        "path": "data/arxiv/graph.pickle",
+        "size": 3615280,
+        "modify": "2024-01-04 14:01:19",
+        "dataset_name": "arxiv",
+        "keyword_fields": [
+            "this is unused"
+        ],
+        "data_modify": "2024-01-04 13:55:24"
+    }
+}
