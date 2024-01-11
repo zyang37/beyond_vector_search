@@ -67,7 +67,7 @@ class Wiki_MovieQueryTemplate:
             if query == start_text:
                 # if no infor added, add title
                 query += self.plot_query()
-        return query
+        return query.replace("\r", "")
 
     def append_info(self):
         # add info to the query based on the probability
@@ -164,7 +164,7 @@ class Wiki_MovieQueryTemplate:
 
 
 class WikiMoviesParser:
-    def __init__(self, df=None, id_col="Plot Summary"):
+    def __init__(self, df=None, id_col="Title"):
         self.df = df
         self.unique_ks = []
         self.exclude_authors = []
@@ -383,12 +383,12 @@ if __name__ == "__main__":
         queries_list.extend(
             query_template.generate_queries(title=title, num=num_queries_per_paper)
         )
-        paper_id_list.extend([d["Plot Summary"]] * num_queries_per_paper)
+        paper_id_list.extend([d["Title"]] * num_queries_per_paper)
 
     if save_path:
         # make pandas dataframe
         # df = pd.DataFrame({'paper_id': paper_id_list, 'query': queries_list, 'k': [k]*len(queries_list)})
-        df = pd.DataFrame({"paper_id": paper_id_list, "query": queries_list})
+        df = pd.DataFrame({"id": paper_id_list, "query": queries_list})
         df.to_csv(save_path, index=False)
     else:
         # print queries
