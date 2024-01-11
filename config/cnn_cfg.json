@@ -1,0 +1,59 @@
+{
+    "data": {
+        "path": "data/cnn_news/filtered_dataCNN.pickle",
+        "size": "180363105",
+        "modify": "2023-12-28 16:52:13"
+    },
+    "vectorDB": {
+        "root": "data/chroma_dbs/",
+        "embedding_model": "all-MiniLM-L6-v2",
+        "chunk": false,
+        "collection_name": "cnn_headline",
+        "id_field": "Url",
+        "embed_field": "Headline",
+        "metadata_fields": [
+            "Index",
+            "Author",
+            "Date published",
+            "Category",
+            "Section",
+            "Url",
+            "Headline",
+            "Description",
+            "Keywords",
+            "Second headline",
+            "Article text"
+        ]
+    },
+    "vectorDBGT": {
+        "root": "data/chroma_dbs/",
+        "embedding_model": "all-MiniLM-L6-v2",
+        "chunk": true,
+        "collection_name": "cnn_article",
+        "id_field": "Url",
+        "embed_field": "Article text",
+        "metadata_fields": [
+            "Index",
+            "Author",
+            "Date published",
+            "Category",
+            "Section",
+            "Url",
+            "Headline",
+            "Description",
+            "Keywords",
+            "Second headline",
+            "Article text"
+        ]
+    },
+    "graphDB": {
+        "path": "data/cnn_news/graph.pickle",
+        "size": 8528837,
+        "modify": "2024-01-10 23:25:30",
+        "dataset_name": "cnn",
+        "keyword_fields": [
+            "this is unused"
+        ],
+        "data_modify": "2023-12-28 16:52:13"
+    }
+}
