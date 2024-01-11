@@ -60,7 +60,7 @@ def build_graph(df):
     journals = df["journal-ref"].map(parse_journal)
     years = df["update_date"].map(parse_year)
 
-    df.drop_duplicates(subset=['id'], inplace=True)
+    # df.drop_duplicates(subset=['id'], inplace=True)
     df["id"] = df["id"].astype("string")
     data_ids = set(df["id"].tolist())
 

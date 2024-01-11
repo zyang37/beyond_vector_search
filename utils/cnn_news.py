@@ -10,13 +10,13 @@ from tqdm.auto import tqdm
 
 sys.path.append("../")
 from workloads.keyword_extractor import *
+from utils.nlp_tools import token_limited_sentences
 from utils.build_graph import graph_extend_node_edge
 from vector_graph.bipartite_graph_dict import BipartiteGraphDict
 
 # fix the random seed
 random.seed(0)
 np.random.seed(0)
-
 
 class CNN_NewsQueryTemplate:
     def __init__(self, prob_cfg: dict = None):
@@ -27,8 +27,8 @@ class CNN_NewsQueryTemplate:
         else:
             self.infor_prob = {
                 "Keywords": 0.5,
-                "Author": 0.5,
-                "Date published": 0.5,
+                "Author": 0.,
+                "Date published": 0.,
                 "Section": 0.5,
                 "Category": 0.5,
                 "Article text": 1,
@@ -90,25 +90,38 @@ class CNN_NewsQueryTemplate:
             self.infor_dict[key] = parsed_infor
 
         # keyword_scores: [(s1, k1), (s2, k2), ...]
-        self.keyword_scores_dict = extract_keywords(
-            self.infor_dict["Article text"], score=True
-        )[:20]
+        self.score_keyword_tp_list = []
+        # self.score_keyword_tp_list = extract_keywords(
+        #     self.infor_dict["Article text"], score=True
+        # )[:10]
+
+        # make text chunk
+        chunk_topk = 10
+        text_chunks = token_limited_sentences(self.infor_dict["Article text"], 350)
+        for i, t in enumerate(text_chunks):
+            # get keywords for each chunk
+            chunk_score_keyword_tp_list = extract_keywords(t, score=True)[:chunk_topk]
+            self.score_keyword_tp_list.extend(chunk_score_keyword_tp_list)
+        # print(self.infor_dict["Article text"])
+        # pprint(self.score_keyword_tp_list)
+        # exit()
+
         # get list of score
-        self.keyword_weights = [s for s, k in self.keyword_scores_dict]
+        self.keyword_weights = [s for s, k in self.score_keyword_tp_list]
         # get list of clean keywords, note: this might reduce the number of keywords
         self.keywords = remove_noise_from_keywords(
-            [k for s, k in self.keyword_scores_dict]
+            [k for s, k in self.score_keyword_tp_list]
         )
         if len(self.keywords) == 0:
             """
             Note: some paper's abstract contains lots of math, and the keyword extractor cannot extract any keywords
             """
             # if no keywords, use the original keywords
-            self.keywords = [k for s, k in self.keyword_scores_dict]
+            self.keywords = [k for s, k in self.score_keyword_tp_list]
 
         # adjust the weights of keywords
         self.keyword_weights = self.keyword_weights[: len(self.keywords)]
-        self.keyword_scores_dict = self.keyword_scores_dict[: len(self.keywords)]
+        self.score_keyword_tp_list = self.score_keyword_tp_list[: len(self.keywords)]
 
     def parse_article_text(self, article_text):
         """
@@ -118,7 +131,7 @@ class CNN_NewsQueryTemplate:
         abstract_str = " ".join(article_text.split())
         return abstract_str.replace("\n", " ")
 
-    def article_text_query(self, max_num=3):
+    def article_text_query(self, max_num=6):
         # random_keyword = random.choice(self.keywords)
         # Randomly add more keywords (max 5), return str like "k1 and k2". no repeated keywords
         num = random.randint(1, max_num)

@@ -4,6 +4,19 @@ import pandas as pd
 from tqdm.auto import tqdm
 from collections import Counter
 
+def save_json(data: dict, path: str, verbose: bool = True):
+    # dump the config file 
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
+    print(f"Saved to {path}")
+
+def load_json(path: str, verbose: bool = True):
+    with open(path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    if verbose:
+        print(f"Loaded from {path}")
+    return data
+
 def sort_dict(dict_data, byval=True, reverse=True):
     '''
     This function sorts a dictionary by value or key
