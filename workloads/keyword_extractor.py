@@ -7,7 +7,7 @@ from pprint import pprint
 nltk.download('stopwords', quiet=True)
 nltk.download('punkt', quiet=True)
 
-def remove_noise_from_keywords(keywords: list):
+def remove_noise_from_keywords(keywords: list, max_len: int = 30):
     stop_words = set(stopwords.words('english'))
     punctuations = set(['.', ',', '!', '?', ';', ':', '-', '(', ')', '[', ']', '{', '}', '\'', '\"', '`', '~', '@', '#', '$', '%', '^', '&', '*', '_', '+', '=', '<', '>', '/', '\\', '|'])
     # remove stop words

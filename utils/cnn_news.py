@@ -29,7 +29,7 @@ class CNN_NewsQueryTemplate:
                 "Keywords": 0.5,
                 "Author": 0.,
                 "Date published": 0.,
-                "Section": 0.5,
+                "Section": 0.,
                 "Category": 0.5,
                 "Article text": 1,
             }
