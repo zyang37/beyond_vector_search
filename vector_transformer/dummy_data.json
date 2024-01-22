@@ -1,0 +1,6304 @@
+[
+    {
+        "query_text": "query text 0",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 1",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 2",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 3",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 4",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 5",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 6",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 7",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 8",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 9",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 10",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 11",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 12",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 13",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 14",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 15",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 16",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 17",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 18",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 19",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 20",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 21",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 22",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 23",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 24",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 25",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 26",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 27",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 28",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 29",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 30",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 31",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 32",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 33",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 34",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 35",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 36",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 37",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 38",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 39",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 40",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 41",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 42",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 43",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 44",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 45",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 46",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 47",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 48",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 49",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 50",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 51",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 52",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 53",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 54",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 55",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 56",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 57",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 58",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 59",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 60",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 61",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 62",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 63",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 64",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 65",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 66",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 67",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 68",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 69",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 70",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 71",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 72",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 73",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 74",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 75",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 76",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 77",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 78",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 79",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 80",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 81",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 82",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 83",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 84",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 85",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 86",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 87",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 88",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 89",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 90",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 91",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 92",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 93",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 94",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 95",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 96",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 97",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 98",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 99",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 0",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 1",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 2",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 3",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 4",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 5",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 6",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 7",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 8",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 9",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 10",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 11",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 12",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 13",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 14",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 15",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 16",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 17",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 18",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 19",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 20",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 21",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 22",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 23",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 24",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 25",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 26",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 27",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 28",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 29",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 30",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 31",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 32",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 33",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 34",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 35",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 36",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 37",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 38",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 39",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 40",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 41",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 42",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 43",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 44",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 45",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 46",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 47",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 48",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 49",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 50",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 51",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 52",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 53",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 54",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 55",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 56",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 57",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 58",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 59",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 60",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 61",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 62",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 63",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 64",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 65",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 66",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 67",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 68",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 69",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 70",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 71",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 72",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 73",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 74",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 75",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 76",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 77",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 78",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 79",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 80",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 81",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 82",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 83",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 84",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 85",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 86",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 87",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 88",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 89",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 90",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 91",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 92",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 93",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 94",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 95",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 96",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 97",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 98",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 99",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 0",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 1",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 2",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 3",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 4",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 5",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 6",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 7",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 8",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 9",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 10",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 11",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 12",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 13",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 14",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 15",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 16",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 17",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 18",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 19",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 20",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 21",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 22",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 23",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 24",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 25",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 26",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 27",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 28",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 29",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 30",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 31",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 32",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 33",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 34",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 35",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 36",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 37",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 38",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 39",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 40",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 41",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 42",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 43",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 44",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 45",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 46",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 47",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 48",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 49",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 50",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 51",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 52",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 53",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 54",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 55",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 56",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 57",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 58",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 59",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 60",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 61",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 62",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 63",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 64",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 65",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 66",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 67",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 68",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 69",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 70",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 71",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 72",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 73",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 74",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 75",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 76",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 77",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 78",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 79",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 80",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 81",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 82",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 83",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 84",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 85",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 86",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 87",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 88",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 89",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 90",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 91",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 92",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 93",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 94",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 95",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 96",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 97",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 98",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 99",
+        "query_vector": [
+            1,
+            2,
+            3
+        ],
+        "positive_vector": [
+            1,
+            1,
+            1
+        ],
+        "negative_vector": [
+            0,
+            0,
+            0
+        ],
+        "metadata": {
+            "genre": "Sci-Fi"
+        }
+    },
+    {
+        "query_text": "query text 0",
+        "query_vector": 
