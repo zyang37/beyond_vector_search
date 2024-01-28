@@ -25,7 +25,7 @@ from chromadb.utils import embedding_functions
 from utils.build_graph import build_graph
 from utils.cnn_news import CnnNewsParser
 from utils.wiki_movie import WikiMoviesParser
-from utils.parse_arxiv import load_json, save_json
+from utils.parse_arxiv import load_json, save_json, get_metadta_str
 from utils.nlp_tools import token_limited_sentences
 
 # Inline debugging
@@ -70,6 +70,7 @@ def create_vector_database_chunk(data, db_cfg_dict):
 
     data.drop_duplicates(subset=id_col, inplace=True)
     data.drop_duplicates(subset=embed_col, inplace=True)
+    data.reset_index(inplace=True)
 
     ids = list(data[id_col].astype("str").values)
     data = data[metadata_cols]
@@ -104,11 +105,22 @@ def create_vector_database(data, db_cfg_dict):
 
     data.drop_duplicates(subset=id_col, inplace=True)
     data.drop_duplicates(subset=embed_col, inplace=True)
+    data.reset_index(inplace=True)
 
     ids = list(data[id_col].astype("str").values)
     data = data[metadata_cols]
 
     documents = list(data[embed_col].values)
+    if "metadata_append" in db_cfg_dict:
+        print("append metadata")
+        for index, row in data.iterrows():
+            # Note: index is the index of the dataframe, not the index of the document in the vector database
+            # print(index)
+            documents[index] = documents[index] + " " + get_metadta_str(row, db_cfg_dict["metadata_append"])
+            # print(documents[index])
+            # break
+            # exit()
+
     metedata = list(data.to_dict(orient="records"))
     embed_func = get_embedding_model(db_cfg_dict)
 
@@ -233,12 +245,12 @@ if __name__ == "__main__":
 
     if not args.build_graph_only:
         # create the text vector database
-        # print("Creating the test vector database...")
-        # create_vector_database(data, cfg['vectorDB'])
+        print("Creating the test vector database...")
+        create_vector_database(data, cfg['vectorDB'])
 
         # create the ground truth vector database
         print("Creating the GT vector database...")
-        if 'chunk' in cfg['vectorDBGT'] and cfg['vectorDBGT']['chunk']:
+        if 'chunk' in cfg['vectorDBGT'] and cfg['vectorDBGT']['chunk']['use']:
             print("Creating the GT vector database with chunk...")
             create_vector_database_chunk(data, cfg['vectorDBGT'])
         else:

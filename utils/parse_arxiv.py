@@ -17,6 +17,20 @@ def load_json(path: str, verbose: bool = True):
         print(f"Loaded from {path}")
     return data
 
+def get_metadta_str(df_row, metadata_cols):
+    '''
+    This function gets the metadata string from the dataframe row
+
+    args:
+        - df_row: dataframe row
+        - metadata_cols: list of metadata columns
+    return: metadata string
+    '''
+    metadata_str = ""
+    for col in metadata_cols:
+        metadata_str += "{} {}".format(col, str(df_row[col])) + " "
+    return metadata_str
+
 def sort_dict(dict_data, byval=True, reverse=True):
     '''
     This function sorts a dictionary by value or key
