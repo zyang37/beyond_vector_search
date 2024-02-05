@@ -39,7 +39,7 @@ class AdjustableVectorTransformationModel(nn.Module):
         original_loss = torch.dist(transformed_vector, x, 2)
         
         # Compute the total loss
-        loss = positive_loss + negative_loss + original_loss * (1-adjustment_factor)
+        loss = (positive_loss - negative_loss)**2 + original_loss
         
         return loss
 
