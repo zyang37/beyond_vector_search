@@ -17,7 +17,13 @@ class MetadataGraph:
         metadata_list = list(metadata_set)
         # color hex code random generator
         random_color = "#{:06x}".format(random.randint(0, 0xFFFFFF))
-        self.G.add_nodes_from(metadata_list, color=random_color)
+
+        # construct a list of tuples, each tuple is a node and its attributes: (node, {attr1: val1, attr2: val2, ...})
+        metadata_nodes_with_attrs = []
+        for md in metadata_list:
+            metadata_nodes_with_attrs.append((md, {"color": random_color}))
+
+        self.G.add_nodes_from(metadata_nodes_with_attrs)
         self.metadata_nodes.extend(metadata_list)
 
     def connect_edges(self, metadata_set):
