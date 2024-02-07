@@ -305,7 +305,7 @@ if __name__ == "__main__":
                         help="should sample (will only infer first few from each input file)")
     parser.add_argument("-co", "--cut-off",default=-3,type=int,
         help="Priority cutoff, weighted ranked result will only include data whose priority is lower (better) than cutoff")
-    parser.add_argument("-kw", "--keyword_weights", default="data/cnn_news/keyword_weights.json", type=str,
+    parser.add_argument("-kw", "--keyword_weights", default=None, type=str,
         help="json file that stores the weights of the keywords")
     args = parser.parse_args()
     pprint(vars(args))

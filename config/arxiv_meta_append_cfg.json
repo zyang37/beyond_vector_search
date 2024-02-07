@@ -1,0 +1,61 @@
+{
+    "data": {
+        "path": "data/arxiv/filtered_data.pickle",
+        "size": 20635596,
+        "modify": "2024-01-04 13:55:24"
+    },
+    "vectorDB": {
+        "root": "data/chroma_dbs/",
+        "embedding_model": "all-MiniLM-L6-v2",
+        "collection_name": "arxiv_title_meta",
+        "id_field": "id",
+        "embed_field": "title",
+        "metadata_append": [
+            "authors",
+            "journal-ref",
+            "categories",
+            "update_date"
+        ],
+        "metadata_fields": [
+            "id",
+            "title",
+            "abstract",
+            "authors",
+            "journal-ref",
+            "categories",
+            "comments",
+            "update_date"
+        ]
+    },
+    "vectorDBGT": {
+        "root": "data/chroma_dbs/",
+        "embedding_model": "all-MiniLM-L6-v2",
+        "collection_name": "arxiv_abstract_meta",
+        "id_field": "id",
+        "embed_field": "abstract",
+        "metadata_fields": [
+            "id",
+            "title",
+            "abstract",
+            "authors",
+            "journal-ref",
+            "categories",
+            "comments",
+            "update_date"
+        ],
+        "chunk": {
+            "use": false,
+            "reverse_id_field": null
+        }
+    },
+    "graphDB": {
+        "path": "data/arxiv/graph_meta.pickle",
+        "size": 3615274,
+        "modify": "2024-01-22 13:44:06",
+        "dataset_name": "arxiv",
+        "keyword_fields": [
+            "this is unused"
+        ],
+        "data_modify": "2024-01-04 13:55:24"
+    }
+}

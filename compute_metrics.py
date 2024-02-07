@@ -344,6 +344,11 @@ if __name__ == "__main__":
     results_df = pd.DataFrame()
     inference_res_folder = Path(args.folder)
 
+    # check save path, should be a csv file
+    if args.save[-4:] != ".csv":
+        print("Save path should be a csv file")
+        exit()
+
     for f in inference_res_folder.iterdir():
         if f.suffix != ".json":
             continue
