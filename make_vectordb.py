@@ -250,7 +250,7 @@ if __name__ == "__main__":
 
         # create the ground truth vector database
         print("Creating the GT vector database...")
-        if 'chunk' in cfg['vectorDBGT'] and cfg['vectorDBGT']['chunk']['use']:
+        if 'chunk' in cfg['vectorDBGT'] and cfg['vectorDBGT']['chunk']:
             print("Creating the GT vector database with chunk...")
             create_vector_database_chunk(data, cfg['vectorDBGT'])
         else:
