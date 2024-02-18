@@ -330,8 +330,10 @@ if __name__ == "__main__":
     #     keyword_weights = json.load(f)
     
     #TODO: NEED TO CHANGE THIS!!!
-    if args.keyword_weights == "data/cnn_news/keyword_weights.json":
-        keyword_weights = load_json(args.keyword_weights)
+    if args.keyword_weights == 'cnn':
+        keyword_weights = load_json("data/cnn_news/keyword_weights.json")
+    elif args.keyword_weights == 'wiki':
+        keyword_weights = load_json("data/wiki_movies/keyword_weights.json")
     else:
         keyword_weights = {
             "author": 4,

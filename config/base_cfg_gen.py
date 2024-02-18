@@ -96,7 +96,49 @@ def base_cnn():
     #     json.dump(cfg, f, ensure_ascii=False, indent=4)
     save_json(cfg, 'cnn_cfg_base.json', verbose=True)
 
+
+def base_wiki():
+    cfg = {}
+    # infor can be obtained from running "stat <file name>"
+    cfg['data'] = {
+        'path': 'data/wiki_movies/filtered_data_wiki_movies.pickle',
+        'size': '67360154', 
+        'modify': '2023-12-28 19:38:58'
+    }
+    # available models: https://docs.trychroma.com/embeddings
+    cfg['vectorDB'] = {
+        'root': 'data/chroma_dbs/',
+        'embedding_model': 'all-MiniLM-L6-v2',
+        'chunk': False,
+        'collection_name': 'wiki_plot_summary',
+        'id_field': 'Title',
+        'embed_field': 'Plot Summary',
+        'metadata_fields': ['Year', 'Title', 'Origin', 'Director', 'Cast', 'Genre', 'Wiki Page', 'Plot', 'Plot Summary', 'Plot_len', 'Plotsum_len', 'len_ratio']
+    }
+    # metadata in GT should have id that maps chunk data to the original data id used in the vectorDB
+    cfg['vectorDBGT'] = {
+        'root': 'data/chroma_dbs/',
+        'embedding_model': 'all-MiniLM-L6-v2',
+        'chunk': True,
+        'collection_name': 'wiki_plot',
+        'id_field': 'Title',
+        'embed_field': 'Plot',
+        'metadata_fields': ['Year', 'Title', 'Origin', 'Director', 'Cast', 'Genre', 'Wiki Page', 'Plot', 'Plot Summary', 'Plot_len', 'Plotsum_len', 'len_ratio']
+    }
+    # currently, the graphDB is hard coded to handle arxiv, cnn and wiki
+    cfg['graphDB'] = {
+        'path': 'data/wiki_movies/graph.pickle', 
+        'size': '', 
+        'modify': '', 
+        'dataset_name': 'wiki',
+        'keyword_fields': ["this is unused"], 
+        'data_modify': '',
+    }
+
+    save_json(cfg, 'wiki_cfg_base.json', verbose=True)
+
 if __name__ == '__main__':
     # base_arxiv()
-    base_cnn()
+    # base_cnn()
+    base_wiki()
     

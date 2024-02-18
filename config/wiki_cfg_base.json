@@ -1,0 +1,61 @@
+{
+    "data": {
+        "path": "data/wiki_movies/filtered_data_wiki_movies.pickle",
+        "size": "67360154",
+        "modify": "2023-12-28 19:38:58"
+    },
+    "vectorDB": {
+        "root": "data/chroma_dbs/",
+        "embedding_model": "all-MiniLM-L6-v2",
+        "chunk": false,
+        "collection_name": "wiki_plot_summary",
+        "id_field": "Title",
+        "embed_field": "Plot Summary",
+        "metadata_fields": [
+            "Year",
+            "Title",
+            "Origin",
+            "Director",
+            "Cast",
+            "Genre",
+            "Wiki Page",
+            "Plot",
+            "Plot Summary",
+            "Plot_len",
+            "Plotsum_len",
+            "len_ratio"
+        ]
+    },
+    "vectorDBGT": {
+        "root": "data/chroma_dbs/",
+        "embedding_model": "all-MiniLM-L6-v2",
+        "chunk": true,
+        "collection_name": "wiki_plot",
+        "id_field": "Title",
+        "embed_field": "Plot",
+        "metadata_fields": [
+            "Year",
+            "Title",
+            "Origin",
+            "Director",
+            "Cast",
+            "Genre",
+            "Wiki Page",
+            "Plot",
+            "Plot Summary",
+            "Plot_len",
+            "Plotsum_len",
+            "len_ratio"
+        ]
+    },
+    "graphDB": {
+        "path": "data/wiki_movies/graph.pickle",
+        "size": "",
+        "modify": "",
+        "dataset_name": "wiki",
+        "keyword_fields": [
+            "this is unused"
+        ],
+        "data_modify": ""
+    }
+}

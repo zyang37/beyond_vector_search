@@ -156,6 +156,7 @@ class BipartiteGraphDict:
 
     def get_edge_weight(self, keyword_id):
         for keyword, value in self.keyword_map.items():
+            # print(f"keyword: {keyword}, value: {value}")
             if keyword in keyword_id:
                 return -1 * value
         exit("Keyword not found in keyword_map")
