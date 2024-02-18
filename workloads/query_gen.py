@@ -98,7 +98,7 @@ class QueryTemplate:
 
         self.abstract = parse_abstract(info["abstract"])
         # keyword_scores: [(s1, k1), (s2, k2), ...]
-        self.keyword_scores_dict = extract_keywords(self.abstract, score=True)[:20]
+        self.keyword_scores_dict = extract_keywords(self.abstract, score=True, spacy=False)[:20]
         # get list of score
         self.keyword_weights = [s for s, k in self.keyword_scores_dict]
         # get list of clean keywords, note: this might reduce the number of keywords

@@ -26,11 +26,11 @@ class Wiki_MovieQueryTemplate:
             self.infor_prob = prob_cfg
         else:
             self.infor_prob = {
-                "Origin": 0.5,
-                "Director": 0.5,
-                "Cast": 0.5,
-                "Genre": 0.5,
-                "Year": 0.5,
+                "Origin": 0.,
+                "Director": 0.,
+                "Cast": 0.,
+                "Genre": 0.,
+                "Year": 0.,
                 "Plot": 1,
             }
 
@@ -91,8 +91,8 @@ class Wiki_MovieQueryTemplate:
 
         # keyword_scores: [(s1, k1), (s2, k2), ...]
         self.keyword_scores_dict = extract_keywords(
-            self.infor_dict["Plot"], score=True
-        )[:20]
+            self.infor_dict["Plot"], score=True, spacy=True
+        )[:100]
         # get list of score
         self.keyword_weights = [s for s, k in self.keyword_scores_dict]
         # get list of clean keywords, note: this might reduce the number of keywords
@@ -121,7 +121,7 @@ class Wiki_MovieQueryTemplate:
     def plot_query(self, max_num=5):
         # random_keyword = random.choice(self.keywords)
         # Randomly add more keywords (max 5), return str like "k1 and k2". no repeated keywords
-        num = random.randint(1, max_num)
+        num = random.randint(2, max_num)
         if num > len(self.keywords):
             """
             Note: some paper have very few keywords,

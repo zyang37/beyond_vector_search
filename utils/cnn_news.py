@@ -26,11 +26,11 @@ class CNN_NewsQueryTemplate:
             self.infor_prob = prob_cfg
         else:
             self.infor_prob = {
-                "Keywords": 0.5,
+                "Keywords": 0.,
                 "Author": 0.,
                 "Date published": 0.,
                 "Section": 0.,
-                "Category": 0.5,
+                "Category": 0.,
                 "Article text": 1,
             }
 
@@ -96,12 +96,16 @@ class CNN_NewsQueryTemplate:
         # )[:10]
 
         # make text chunk
-        chunk_topk = 10
-        text_chunks = token_limited_sentences(self.infor_dict["Article text"], 350)
-        for i, t in enumerate(text_chunks):
-            # get keywords for each chunk
-            chunk_score_keyword_tp_list = extract_keywords(t, score=True)[:chunk_topk]
-            self.score_keyword_tp_list.extend(chunk_score_keyword_tp_list)
+        chunk_topk = 100
+        # text_chunks = token_limited_sentences(self.infor_dict["Article text"], 350)
+        # for i, t in enumerate(text_chunks):
+        #     # get keywords for each chunk
+        #     chunk_score_keyword_tp_list = extract_keywords(t, score=True)[:chunk_topk]
+        #     self.score_keyword_tp_list.extend(chunk_score_keyword_tp_list)
+        self.score_keyword_tp_list = extract_keywords(
+            self.infor_dict["Article text"], score=True, spacy=True
+        )[:chunk_topk]
+        
         # print(self.infor_dict["Article text"])
         # pprint(self.score_keyword_tp_list)
         # exit()
@@ -134,7 +138,7 @@ class CNN_NewsQueryTemplate:
     def article_text_query(self, max_num=6):
         # random_keyword = random.choice(self.keywords)
         # Randomly add more keywords (max 5), return str like "k1 and k2". no repeated keywords
-        num = random.randint(1, max_num)
+        num = random.randint(2, max_num)
         if num >= len(self.keywords):
             """
             Note: some paper have very few keywords,
