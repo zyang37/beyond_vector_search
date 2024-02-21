@@ -166,6 +166,7 @@ class Wiki_MovieQueryTemplate:
 class WikiMoviesParser:
     def __init__(self, df=None, id_col="Title"):
         self.df = df
+        self.id_col = id_col
         self.unique_ks = []
         self.exclude_authors = []
 
@@ -178,7 +179,6 @@ class WikiMoviesParser:
         }
 
         if self.df is not None:
-            self.id_col = id_col
             self.df[self.id_col] = self.df[self.id_col].astype("string")
             # drop duplicates
             self.df.drop_duplicates(subset=[self.id_col], inplace=True)
@@ -203,6 +203,7 @@ class WikiMoviesParser:
 
         for idx in tqdm(range(self.df.shape[0])):
             document_id = self.df[self.id_col].iloc[idx]
+            # print(document_id)
             for k in self.parse_func_dict.keys():
                 Knodes_dict[k], edges_dict[k] = graph_extend_node_edge(
                     idx,
