@@ -1,9 +1,1 @@
-numpy==1.26.0
-pandas==1.5.3
-torch==2.13.0
-scikit-learn==1.5.0
-sentencepiece==0.2.1
-transformers==5.10.1
-chromadb==0.4.16
-nltk==3.10.3
-rake-nltk==1.0.6
+
